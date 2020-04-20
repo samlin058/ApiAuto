@@ -1,0 +1,6 @@
+#surefire
+#Tue Apr 14 16:08:53 CST 2020
+org.uncommons.reportng.escape-output=false
+user.dir=D\:\\samlin\\workspace\\ApiAuto
+localRepository=D\:\\samlin\\javaFile\\mavenRepository
+basedir=D\:\\samlin\\workspace\\ApiAuto

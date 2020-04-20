@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="6" failures="0" name="TestSuite" time="3.347" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jre1.8.0_131\bin"/>
+    <property name="java.vm.version" value="25.131-b11"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\samlin\workspace\ApiAuto"/>
+    <property name="java.runtime.version" value="1.8.0_131-b11"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="basedir" value="D:\samlin\workspace\ApiAuto"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jre1.8.0_131\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="surefire.real.class.path" value="D:\samlin\workspace\ApiAuto\target\surefire\surefirebooter3494900152800933179.jar"/>
+    <property name="java.io.tmpdir" value="C:\Users\samlin\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jre1.8.0_131\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_131/bin/server;C:/Program Files/Java/jre1.8.0_131/bin;C:/Program Files/Java/jre1.8.0_131/lib/amd64;D:\samlin\software\xshell\;D:\samlin\software\xftp\;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\samlin\javaFile\apache-maven-3.5.2\bin;C:\Program Files\Java\jdk1.8.0_131\bin;C:\Program Files\Java\jdk1.8.0_131\jre\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\samlin\software\git\Git\cmd;C:\Users\samlin\AppData\Local\Microsoft\WindowsApps;D:\samlin\software\vscode\Microsoft VS Code\bin;D:\samlin\javaFile\apache-maven-3.5.2\bin;;D:\samlin\javaFile\eclipse;;."/>
+    <property name="surefire.test.class.path" value="D:\samlin\workspace\ApiAuto\target\test-classes;D:\samlin\workspace\ApiAuto\target\classes;D:\samlin\javaFile\mavenRepository\log4j\log4j\1.2.17\log4j-1.2.17.jar;D:\samlin\javaFile\mavenRepository\org\testng\testng\6.9.5\testng-6.9.5.jar;D:\samlin\javaFile\mavenRepository\junit\junit\4.10\junit-4.10.jar;D:\samlin\javaFile\mavenRepository\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;D:\samlin\javaFile\mavenRepository\com\beust\jcommander\1.48\jcommander-1.48.jar;D:\samlin\javaFile\mavenRepository\org\apache\ant\ant\1.7.0\ant-1.7.0.jar;D:\samlin\javaFile\mavenRepository\org\apache\ant\ant-launcher\1.7.0\ant-launcher-1.7.0.jar;D:\samlin\javaFile\mavenRepository\com\google\inject\guice\4.0\guice-4.0-no_aop.jar;D:\samlin\javaFile\mavenRepository\javax\inject\javax.inject\1\javax.inject-1.jar;D:\samlin\javaFile\mavenRepository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;D:\samlin\javaFile\mavenRepository\com\google\guava\guava\16.0.1\guava-16.0.1.jar;D:\samlin\javaFile\mavenRepository\org\yaml\snakeyaml\1.15\snakeyaml-1.15.jar;D:\samlin\javaFile\mavenRepository\org\beanshell\bsh\2.0b4\bsh-2.0b4.jar;D:\samlin\javaFile\mavenRepository\org\apache\poi\poi-ooxml\3.15\poi-ooxml-3.15.jar;D:\samlin\javaFile\mavenRepository\org\apache\poi\poi\3.15\poi-3.15.jar;D:\samlin\javaFile\mavenRepository\org\apache\commons\commons-collections4\4.1\commons-collections4-4.1.jar;D:\samlin\javaFile\mavenRepository\org\apache\poi\poi-ooxml-schemas\3.15\poi-ooxml-schemas-3.15.jar;D:\samlin\javaFile\mavenRepository\org\apache\xmlbeans\xmlbeans\2.6.0\xmlbeans-2.6.0.jar;D:\samlin\javaFile\mavenRepository\stax\stax-api\1.0.1\stax-api-1.0.1.jar;D:\samlin\javaFile\mavenRepository\com\github\virtuald\curvesapi\1.04\curvesapi-1.04.jar;D:\samlin\javaFile\mavenRepository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar;D:\samlin\javaFile\mavenRepository\org\apache\httpcomponents\httpclient\4.5.2\httpclient-4.5.2.jar;D:\samlin\javaFile\mavenRepository\org\apache\httpcomponents\httpcore\4.4.4\httpcore-4.4.4.jar;D:\samlin\javaFile\mavenRepository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;D:\samlin\javaFile\mavenRepository\commons-codec\commons-codec\1.9\commons-codec-1.9.jar;D:\samlin\javaFile\mavenRepository\com\alibaba\fastjson\1.2.47\fastjson-1.2.47.jar;D:\samlin\javaFile\mavenRepository\org\uncommons\reportng\1.1.4\reportng-1.1.4.jar;D:\samlin\javaFile\mavenRepository\velocity\velocity\1.4\velocity-1.4.jar;D:\samlin\javaFile\mavenRepository\velocity\velocity-dep\1.4\velocity-dep-1.4.jar;D:\samlin\javaFile\mavenRepository\org\projectlombok\lombok\1.18.8\lombok-1.18.8.jar;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\samlin"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="samlin"/>
+    <property name="java.class.path" value="D:\samlin\workspace\ApiAuto\target\test-classes;D:\samlin\workspace\ApiAuto\target\classes;D:\samlin\javaFile\mavenRepository\log4j\log4j\1.2.17\log4j-1.2.17.jar;D:\samlin\javaFile\mavenRepository\org\testng\testng\6.9.5\testng-6.9.5.jar;D:\samlin\javaFile\mavenRepository\junit\junit\4.10\junit-4.10.jar;D:\samlin\javaFile\mavenRepository\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;D:\samlin\javaFile\mavenRepository\com\beust\jcommander\1.48\jcommander-1.48.jar;D:\samlin\javaFile\mavenRepository\org\apache\ant\ant\1.7.0\ant-1.7.0.jar;D:\samlin\javaFile\mavenRepository\org\apache\ant\ant-launcher\1.7.0\ant-launcher-1.7.0.jar;D:\samlin\javaFile\mavenRepository\com\google\inject\guice\4.0\guice-4.0-no_aop.jar;D:\samlin\javaFile\mavenRepository\javax\inject\javax.inject\1\javax.inject-1.jar;D:\samlin\javaFile\mavenRepository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;D:\samlin\javaFile\mavenRepository\com\google\guava\guava\16.0.1\guava-16.0.1.jar;D:\samlin\javaFile\mavenRepository\org\yaml\snakeyaml\1.15\snakeyaml-1.15.jar;D:\samlin\javaFile\mavenRepository\org\beanshell\bsh\2.0b4\bsh-2.0b4.jar;D:\samlin\javaFile\mavenRepository\org\apache\poi\poi-ooxml\3.15\poi-ooxml-3.15.jar;D:\samlin\javaFile\mavenRepository\org\apache\poi\poi\3.15\poi-3.15.jar;D:\samlin\javaFile\mavenRepository\org\apache\commons\commons-collections4\4.1\commons-collections4-4.1.jar;D:\samlin\javaFile\mavenRepository\org\apache\poi\poi-ooxml-schemas\3.15\poi-ooxml-schemas-3.15.jar;D:\samlin\javaFile\mavenRepository\org\apache\xmlbeans\xmlbeans\2.6.0\xmlbeans-2.6.0.jar;D:\samlin\javaFile\mavenRepository\stax\stax-api\1.0.1\stax-api-1.0.1.jar;D:\samlin\javaFile\mavenRepository\com\github\virtuald\curvesapi\1.04\curvesapi-1.04.jar;D:\samlin\javaFile\mavenRepository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar;D:\samlin\javaFile\mavenRepository\org\apache\httpcomponents\httpclient\4.5.2\httpclient-4.5.2.jar;D:\samlin\javaFile\mavenRepository\org\apache\httpcomponents\httpcore\4.4.4\httpcore-4.4.4.jar;D:\samlin\javaFile\mavenRepository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;D:\samlin\javaFile\mavenRepository\commons-codec\commons-codec\1.9\commons-codec-1.9.jar;D:\samlin\javaFile\mavenRepository\com\alibaba\fastjson\1.2.47\fastjson-1.2.47.jar;D:\samlin\javaFile\mavenRepository\org\uncommons\reportng\1.1.4\reportng-1.1.4.jar;D:\samlin\javaFile\mavenRepository\velocity\velocity\1.4\velocity-1.4.jar;D:\samlin\javaFile\mavenRepository\velocity\velocity-dep\1.4\velocity-dep-1.4.jar;D:\samlin\javaFile\mavenRepository\org\projectlombok\lombok\1.18.8\lombok-1.18.8.jar;"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jre1.8.0_131"/>
+    <property name="sun.java.command" value="D:\samlin\workspace\ApiAuto\target\surefire\surefirebooter3494900152800933179.jar D:\samlin\workspace\ApiAuto\target\surefire\surefire4238477560370985070tmp D:\samlin\workspace\ApiAuto\target\surefire\surefire5829446168195455614tmp"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_131"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jre1.8.0_131\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jre1.8.0_131\lib\resources.jar;C:\Program Files\Java\jre1.8.0_131\lib\rt.jar;C:\Program Files\Java\jre1.8.0_131\lib\sunrsasign.jar;C:\Program Files\Java\jre1.8.0_131\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_131\lib\jce.jar;C:\Program Files\Java\jre1.8.0_131\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_131\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_131\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="org.uncommons.reportng.escape-output" value="false"/>
+    <property name="localRepository" value="D:\samlin\javaFile\mavenRepository"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="testCase.ApiProcessor" name="apiProcessor" time="0.984"/>
+  <testcase classname="testCase.ApiProcessor" name="apiProcessor" time="0.169"/>
+  <testcase classname="testCase.ApiProcessor" name="apiProcessor" time="0.058"/>
+  <testcase classname="testCase.ApiProcessor" name="apiProcessor" time="0.071"/>
+  <testcase classname="testCase.ApiProcessor" name="apiProcessor" time="0.176"/>
+  <testcase classname="testCase.ApiProcessor" name="apiProcessor" time="0.871"/>
+</testsuite>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="2721" started-at="2020-04-14T08:12:57Z" finished-at="2020-04-14T08:13:00Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="2721" started-at="2020-04-14T08:12:57Z" finished-at="2020-04-14T08:13:00Z">
+      <class name="testCase.ApiProcessor">
+        <test-method status="PASS" signature="apiProcessor(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCase.ApiProcessor@7c16905e]" name="apiProcessor" duration-ms="984" started-at="2020-04-14T16:12:58Z" data-provider="getDatas" finished-at="2020-04-14T16:12:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[{"phone":"13916810045","password":"123456"}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[{"user_id":12774,"is_new_user":true}]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiProcessor -->
+        <test-method status="PASS" signature="apiProcessor(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCase.ApiProcessor@7c16905e]" name="apiProcessor" duration-ms="169" started-at="2020-04-14T16:12:59Z" data-provider="getDatas" finished-at="2020-04-14T16:12:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[{"phone":"18121151234","password":"123456"}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[{"code":101018,"message":"手机号码或密码不正确"}]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiProcessor -->
+        <test-method status="PASS" signature="apiProcessor(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCase.ApiProcessor@7c16905e]" name="apiProcessor" duration-ms="58" started-at="2020-04-14T16:12:59Z" data-provider="getDatas" finished-at="2020-04-14T16:12:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[{"phone":"11111111111","password":"123456"}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[{"code":101000,"message":"请输入正确的手机号","data":{}}]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiProcessor -->
+        <test-method status="PASS" signature="apiProcessor(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCase.ApiProcessor@7c16905e]" name="apiProcessor" duration-ms="71" started-at="2020-04-14T16:12:59Z" data-provider="getDatas" finished-at="2020-04-14T16:12:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[4]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[{"phone":"13916810045","password":""}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[{"code":101001,"message":"登录密码错误","data":{}}]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiProcessor -->
+        <test-method status="PASS" signature="apiProcessor(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCase.ApiProcessor@7c16905e]" name="apiProcessor" duration-ms="176" started-at="2020-04-14T16:12:59Z" data-provider="getDatas" finished-at="2020-04-14T16:12:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[5]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[{"phone":"13916810045","password":"666666"}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[{"code":101018,"message":"手机号码或密码不正确","data":null}]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiProcessor -->
+        <test-method status="PASS" signature="apiProcessor(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCase.ApiProcessor@7c16905e]" name="apiProcessor" duration-ms="871" started-at="2020-04-14T16:12:59Z" data-provider="getDatas" finished-at="2020-04-14T16:13:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[6]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[{"equipments_status":"false"}]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[yes]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[{"X-TOKEN":"${13916810045}"}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiProcessor -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:testCase.ApiProcessor@7c16905e]" name="afterSuite" is-config="true" duration-ms="105" started-at="2020-04-14T16:13:00Z" finished-at="2020-04-14T16:13:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- testCase.ApiProcessor -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

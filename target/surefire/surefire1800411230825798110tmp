@@ -1,0 +1,6 @@
+#surefire
+#Mon Oct 14 00:19:26 CST 2019
+org.uncommons.reportng.escape-output=false
+user.dir=D\:\\workspace\\ApiAuto
+localRepository=D\:\\samlin\\apache-maven-3.5.2\\m2\\repository
+basedir=D\:\\workspace\\ApiAuto
