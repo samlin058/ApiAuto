@@ -1,0 +1,44 @@
+[
+  {
+    "caseName": "入参为空",
+    "beforeReady": {
+      "clazz": "111",
+      "method": "222",
+      "paramTypes": [
+        "string",
+        "int"
+      ],
+      "param": "张三,3,23,12.12"
+    },
+    "testData": {
+        "leadId": "3252094"
+      },
+    "actualValue": {
+      "type": "rules",
+      "value": [
+        "$.data[2].code",
+        "$.data[2].type"
+      ]
+    },
+    "expectedResult": {
+      "type": "List",
+      "value": [
+        1,
+        312,
+        234,
+        324,
+        432,
+        "12"
+      ]
+    },
+    "afterDo": {
+      "clazz": "111",
+      "method": "222",
+      "paramTypes": [
+        "string",
+        "int"
+      ],
+      "param": "张三，3,23,12.12"
+    }
+  }
+]

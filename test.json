@@ -1,0 +1,31 @@
+{
+  "info": {
+    "title": "API测试文档",
+    "version": "1.0.0",
+    "description": "这是一个测试用的API文档"
+  },
+  "paths": {
+    "/api/test": {
+      "get": {
+        "summary": "测试接口",
+        "description": "UserController.getUserInfo"
+      }
+    }
+  },
+  "data": {
+    "user": {
+      "id": 12345,
+      "name": "张三",
+      "email": "zhangsan@example.com",
+      "age": 30,
+      "isActive": true,
+      "scores": [85, 92, 78, 96],
+      "tags": ["java", "spring", "json"]
+    },
+    "settings": {
+      "theme": "dark",
+      "language": "zh-CN",
+      "notifications": true
+    }
+  }
+} 

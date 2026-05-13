@@ -1,0 +1,19 @@
+package Data.Ro.IndoArk;
+
+import Data.Apis.IndoArk.VoiceApiController;
+import Service.Annotations.AnnotationLibrary.Param;
+import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
+
+
+@lombok.Data
+public class VoiceApiControllerGetInboundPopWindowInfoRo extends VoiceApiController {
+
+    @Param
+    public String mobile;
+
+   static {
+      DenpendencesProcessor.roDendenpence(VoiceApiControllerGetInboundPopWindowInfoRo.class);
+   }
+}
+
+

@@ -1,0 +1,71 @@
+[
+  {
+    "project": "Alchemist",
+    "template": {
+      "account": "${user}",
+      "x-tenant": "${business}"
+    },
+    "loginInfo": [
+      {
+        "yutuan": {
+          "user": "yutuan",
+          "business": "YUERONG"
+        }
+      }
+    ]
+  },
+  {
+    "project": "BlackShark",
+    "template": {
+      "X-Login-User": "${user}",
+      "X-Login-User-Name": "${name}"
+    },
+    "loginInfo": [
+      {
+        "yutuan": {
+          "user": "yutuan",
+          "name": "%E7%8E%89%E5%9B%A2"
+        }
+      }
+    ]
+  },
+  {
+    "project": "Arknights",
+    "template": {
+      "loginUser": "${user}"
+    },
+    "loginInfo": [
+      {
+        "yutuan": {
+          "user": "luandao"
+        }
+      }
+    ]
+  },
+  {
+    "project": "LoanMarket",
+    "template": {
+      "loginUser": "${user}"
+    },
+    "loginInfo": [
+      {
+        "yutuan": {
+          "user": "luandao"
+        }
+      }
+    ]
+  },
+  {
+    "project": "LoanMarketRust",
+    "template": {
+      "X-Login-Uid": "${user}"
+    },
+    "loginInfo": [
+      {
+        "yutuan": {
+          "user": "luandao"
+        }
+      }
+    ]
+  }
+]

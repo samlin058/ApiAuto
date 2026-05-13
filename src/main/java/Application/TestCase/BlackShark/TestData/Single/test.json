@@ -1,0 +1,20 @@
+[
+  {
+    "caseName": "a1",
+    "ro":{
+      "assetId": "a2",
+      "assignBatchNo": "a2",
+      "types": "a3"
+    },
+    "assertString": "1"
+  },
+  {
+    "caseName": "b1",
+    "ro":{
+      "assetId": "b2",
+      "assignBatchNo": "b3",
+      "types": "b4"
+    },
+    "assertString": "$.as.csas.2"
+  }
+]

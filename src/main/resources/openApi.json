@@ -1,0 +1,2225 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "LoanMarket",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "信用家全流程API对接"
+    }
+  ],
+  "paths": {
+    "/test/open/api/getContract": {
+      "post": {
+        "summary": "协议查询",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.AgreementService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "creditOrderNo": {
+                        "type": "string"
+                      },
+                      "loanNo": {
+                        "type": "string"
+                      }
+                    },
+                    "x-apifox-orders": [
+                      "type",
+                      "creditOrderNo",
+                      "loanNo"
+                    ],
+                    "required": [
+                      "type",
+                      "creditOrderNo",
+                      "loanNo"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "required": [
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign",
+                  "channelCode"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297436966-run",
+        "security": []
+      }
+    },
+    "/test/open/api/checkUser": {
+      "post": {
+        "summary": "准入（撞库）",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.UserCheckService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "mobileMd5": {
+                        "type": "string"
+                      },
+                      "idNoMd5": {
+                        "type": "string"
+                      },
+                      "nameMd5": {
+                        "type": "string"
+                      }
+                    },
+                    "x-apifox-orders": [
+                      "mobileMd5",
+                      "idNoMd5",
+                      "nameMd5"
+                    ],
+                    "required": [
+                      "mobileMd5",
+                      "nameMd5",
+                      "idNoMd5"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "type": "string",
+                "reqid": "string",
+                "data": "string",
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297437128-run",
+        "security": []
+      }
+    },
+    "/test/open/api/creditApply": {
+      "post": {
+        "summary": "进件（授信）推送",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.CreditApplyService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "creditOrderNo": {
+                        "type": "string"
+                      },
+                      "baseInfo": {
+                        "type": "object",
+                        "properties": {
+                          "phoneNumber": {
+                            "type": "string"
+                          },
+                          "address": {
+                            "type": "string"
+                          },
+                          "addressProvinceCode": {
+                            "type": "string"
+                          },
+                          "addressProvinceName": {
+                            "type": "string"
+                          },
+                          "addressCityCode": {
+                            "type": "string"
+                          },
+                          "addressCityName": {
+                            "type": "string"
+                          },
+                          "addressDistrictCode": {
+                            "type": "string"
+                          },
+                          "addressDistrictName": {
+                            "type": "string"
+                          },
+                          "job": {
+                            "type": "string"
+                          },
+                          "education": {
+                            "type": "string"
+                          },
+                          "monthIncome": {
+                            "type": "string"
+                          },
+                          "marriage": {
+                            "type": "string"
+                          },
+                          "companyName": {
+                            "type": "string"
+                          },
+                          "companyAddressProvince": {
+                            "type": "string"
+                          },
+                          "companyAddressProvinceName": {
+                            "type": "string"
+                          },
+                          "companyAddressCity": {
+                            "type": "string"
+                          },
+                          "companyAddressCityName": {
+                            "type": "string"
+                          },
+                          "companyAddressDistrict": {
+                            "type": "string"
+                          },
+                          "companyAddressDistrictName": {
+                            "type": "string"
+                          },
+                          "companyAddressDetails": {
+                            "type": "string"
+                          },
+                          "companyPhone": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "phoneNumber",
+                          "address",
+                          "addressProvinceCode",
+                          "addressProvinceName",
+                          "addressCityCode",
+                          "addressCityName",
+                          "addressDistrictCode",
+                          "addressDistrictName",
+                          "job",
+                          "education",
+                          "monthIncome",
+                          "marriage",
+                          "companyName",
+                          "companyAddressProvince",
+                          "companyAddressProvinceName",
+                          "companyAddressCity",
+                          "companyAddressCityName",
+                          "companyAddressDistrict",
+                          "companyAddressDistrictName",
+                          "companyAddressDetails",
+                          "companyPhone"
+                        ],
+                        "x-apifox-orders": [
+                          "phoneNumber",
+                          "address",
+                          "addressProvinceCode",
+                          "addressProvinceName",
+                          "addressCityCode",
+                          "addressCityName",
+                          "addressDistrictCode",
+                          "addressDistrictName",
+                          "job",
+                          "education",
+                          "monthIncome",
+                          "marriage",
+                          "companyName",
+                          "companyAddressProvince",
+                          "companyAddressProvinceName",
+                          "companyAddressCity",
+                          "companyAddressCityName",
+                          "companyAddressDistrict",
+                          "companyAddressDistrictName",
+                          "companyAddressDetails",
+                          "companyPhone"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "idCardInfo": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "idCardNumber": {
+                            "type": "string"
+                          },
+                          "address": {
+                            "type": "string"
+                          },
+                          "gender": {
+                            "type": "string"
+                          },
+                          "nation": {
+                            "type": "string"
+                          },
+                          "issuingAuthority": {
+                            "type": "string"
+                          },
+                          "startDate": {
+                            "type": "string"
+                          },
+                          "endDate": {
+                            "type": "string"
+                          },
+                          "cardFront": {
+                            "type": "string"
+                          },
+                          "cardBack": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "idCardNumber",
+                          "address",
+                          "gender",
+                          "nation",
+                          "issuingAuthority",
+                          "startDate",
+                          "endDate",
+                          "cardFront",
+                          "cardBack"
+                        ],
+                        "x-apifox-orders": [
+                          "name",
+                          "idCardNumber",
+                          "address",
+                          "gender",
+                          "nation",
+                          "issuingAuthority",
+                          "startDate",
+                          "endDate",
+                          "cardFront",
+                          "cardBack"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "contactInfo": {
+                        "type": "object",
+                        "properties": {
+                          "contactNameOne": {
+                            "type": "string"
+                          },
+                          "contactPhoneOne": {
+                            "type": "string"
+                          },
+                          "contactTypeOne": {
+                            "type": "string"
+                          },
+                          "contactNameTwo": {
+                            "type": "string"
+                          },
+                          "contactPhoneTwo": {
+                            "type": "string"
+                          },
+                          "contactTypeTwo": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "contactNameOne",
+                          "contactPhoneOne",
+                          "contactTypeOne",
+                          "contactNameTwo",
+                          "contactPhoneTwo",
+                          "contactTypeTwo"
+                        ],
+                        "x-apifox-orders": [
+                          "contactNameOne",
+                          "contactPhoneOne",
+                          "contactTypeOne",
+                          "contactNameTwo",
+                          "contactPhoneTwo",
+                          "contactTypeTwo"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "deviceInfo": {
+                        "type": "object",
+                        "properties": {
+                          "ip": {
+                            "type": "string"
+                          },
+                          "gps": {
+                            "type": "string"
+                          },
+                          "phoneBrand": {
+                            "type": "string"
+                          },
+                          "phoneModel": {
+                            "type": "string"
+                          },
+                          "systemVersion": {
+                            "type": "string"
+                          },
+                          "networkType": {
+                            "type": "string"
+                          },
+                          "oaid": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "ip",
+                          "gps",
+                          "phoneBrand",
+                          "phoneModel",
+                          "systemVersion",
+                          "networkType",
+                          "oaid"
+                        ],
+                        "x-apifox-orders": [
+                          "ip",
+                          "gps",
+                          "phoneBrand",
+                          "phoneModel",
+                          "systemVersion",
+                          "networkType",
+                          "oaid"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "extendInfo": {
+                        "type": "object",
+                        "properties": {
+                          "remark": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "remark"
+                        ],
+                        "x-apifox-orders": [
+                          "remark"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "livingBody": {
+                        "type": "object",
+                        "properties": {
+                          "faceImgUrl": {
+                            "type": "string"
+                          },
+                          "checkedFaceTime": {
+                            "type": "string"
+                          },
+                          "faceScore": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "faceImgUrl",
+                          "checkedFaceTime",
+                          "faceScore"
+                        ],
+                        "x-apifox-orders": [
+                          "faceImgUrl",
+                          "checkedFaceTime",
+                          "faceScore"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      }
+                    },
+                    "required": [
+                      "creditOrderNo",
+                      "baseInfo",
+                      "idCardInfo",
+                      "contactInfo",
+                      "deviceInfo",
+                      "extendInfo",
+                      "livingBody"
+                    ],
+                    "x-apifox-orders": [
+                      "creditOrderNo",
+                      "baseInfo",
+                      "idCardInfo",
+                      "contactInfo",
+                      "deviceInfo",
+                      "extendInfo",
+                      "livingBody"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "type": "string",
+                "reqid": "string",
+                "data": "string",
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297441155-run",
+        "security": []
+      }
+    },
+    "/test/open/api/creditResult": {
+      "post": {
+        "summary": "进件（授信）结果查询",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.CreditResultQueryService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "creditOrderNo": {
+                        "type": "string"
+                      }
+                    },
+                    "x-apifox-orders": [
+                      "creditOrderNo"
+                    ],
+                    "required": [
+                      "creditOrderNo"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "type": "string",
+                "reqid": "string",
+                "data": "string",
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297441454-run",
+        "security": []
+      }
+    },
+    "/test/open/api/queryBindCard": {
+      "post": {
+        "summary": "查询已绑定的银行卡",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.BindCardListService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "creditOrderNo": {
+                        "type": "string"
+                      }
+                    },
+                    "x-apifox-orders": [
+                      "creditOrderNo"
+                    ],
+                    "required": [
+                      "creditOrderNo"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "channelCode": "string",
+                "reqid": "string",
+                "data": "string",
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297441619-run",
+        "security": []
+      }
+    },
+    "/test/open/api/bindCardApply": {
+      "post": {
+        "summary": "绑卡申请（发送验证码）",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.BindCardApplyService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "creditOrderNo": {
+                        "type": "string"
+                      },
+                      "requestNo": {
+                        "type": "string"
+                      },
+                      "bankCardNumber": {
+                        "type": "string"
+                      },
+                      "phoneNumber": {
+                        "type": "string"
+                      },
+                      "idCardNumber": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "creditOrderNo",
+                      "requestNo",
+                      "bankCardNumber",
+                      "phoneNumber",
+                      "idCardNumber",
+                      "name"
+                    ],
+                    "x-apifox-orders": [
+                      "creditOrderNo",
+                      "requestNo",
+                      "bankCardNumber",
+                      "phoneNumber",
+                      "idCardNumber",
+                      "name"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "channelCode": "string",
+                "reqid": "string",
+                "data": "string",
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297441683-run",
+        "security": []
+      }
+    },
+    "/test/open/api/bindCardConfirm": {
+      "post": {
+        "summary": "绑卡确认",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.BindCardConfirmService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "creditOrderNo": {
+                        "type": "string"
+                      },
+                      "requestNo": {
+                        "type": "string"
+                      },
+                      "bankCardNumber": {
+                        "type": "string"
+                      },
+                      "phoneNumber": {
+                        "type": "string"
+                      },
+                      "idCardNumber": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "verifyCode": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "creditOrderNo",
+                      "requestNo",
+                      "bankCardNumber",
+                      "phoneNumber",
+                      "idCardNumber",
+                      "name",
+                      "verifyCode"
+                    ],
+                    "x-apifox-orders": [
+                      "creditOrderNo",
+                      "requestNo",
+                      "bankCardNumber",
+                      "phoneNumber",
+                      "idCardNumber",
+                      "name",
+                      "verifyCode"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign",
+                  "channelCode"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "type": "string",
+                "reqid": "string",
+                "data": "string",
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297474065-run",
+        "security": []
+      }
+    },
+    "/test/open/api/loanTrial": {
+      "post": {
+        "summary": "借款试算",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.LoanTrialService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "creditOrderNo": {
+                        "type": "string"
+                      },
+                      "thirdCreditOrderNo": {
+                        "type": "string"
+                      },
+                      "loanAmount": {
+                        "type": "string"
+                      },
+                      "loanPeriod": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "creditOrderNo",
+                      "thirdCreditOrderNo",
+                      "loanAmount",
+                      "loanPeriod"
+                    ],
+                    "x-apifox-orders": [
+                      "creditOrderNo",
+                      "thirdCreditOrderNo",
+                      "loanAmount",
+                      "loanPeriod"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "channelCode": "string",
+                "reqid": "string",
+                "data": {
+                  "creditOrderNo": "F7312317005809649543",
+                  "thirdCreditOrderNo": "sadasdasd213",
+                  "loanAmount": "8000",
+                  "loanPeriod": "12"
+                },
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297474660-run",
+        "security": []
+      }
+    },
+    "/test/open/api/submitLoan": {
+      "post": {
+        "summary": "借款申请",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.LoanApplyService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "creditOrderNo": {
+                        "type": "string"
+                      },
+                      "thirdCreditOrderNo": {
+                        "type": "string"
+                      },
+                      "loanOrderNo": {
+                        "type": "string"
+                      },
+                      "loanAmount": {
+                        "type": "string"
+                      },
+                      "loanPeriod": {
+                        "type": "string"
+                      },
+                      "bankCardNum": {
+                        "type": "string"
+                      },
+                      "loanReason": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "creditOrderNo",
+                      "thirdCreditOrderNo",
+                      "loanOrderNo",
+                      "loanAmount",
+                      "loanPeriod",
+                      "bankCardNum",
+                      "loanReason"
+                    ],
+                    "x-apifox-orders": [
+                      "creditOrderNo",
+                      "thirdCreditOrderNo",
+                      "loanOrderNo",
+                      "loanAmount",
+                      "loanPeriod",
+                      "bankCardNum",
+                      "loanReason"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "channelCode": "string",
+                "reqid": "string",
+                "data": {
+                  "creditOrderNo": "F7312317005809649543",
+                  "thirdCreditOrderNo": "2132131231231231",
+                  "loanOrderNo": "FL7312317005809649543",
+                  "loanAmount": "8000",
+                  "loanPeriod": "12",
+                  "bankCardNum": "6212260000000000222",
+                  "loanReason": "1"
+                },
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297474722-run",
+        "security": []
+      }
+    },
+    "/test/open/api/queryLoan": {
+      "post": {
+        "summary": "借款查询",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.LoanResultQueryService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "loanOrderNo": {
+                        "type": "string"
+                      },
+                      "thirdLoanOrderNo": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "loanOrderNo",
+                      "thirdLoanOrderNo"
+                    ],
+                    "x-apifox-orders": [
+                      "loanOrderNo",
+                      "thirdLoanOrderNo"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "channelCode": "string",
+                "reqid": "string",
+                "data": {
+                  "loanOrderNo": "2342342",
+                  "thirdLoanOrderNo": "1231231231"
+                },
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297474899-run",
+        "security": []
+      }
+    },
+    "/test/open/api/queryRepayPlan": {
+      "post": {
+        "summary": "还款计划查询",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.RepayPlanQueryService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "loanOrderNo": {
+                        "type": "string"
+                      },
+                      "thirdLoanOrderNo": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "loanOrderNo",
+                      "thirdLoanOrderNo"
+                    ],
+                    "x-apifox-orders": [
+                      "loanOrderNo",
+                      "thirdLoanOrderNo"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "channelCode": "string",
+                "reqid": "string",
+                "data": "string",
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297474940-run",
+        "security": []
+      }
+    },
+    "/test/open/api/repayTrial": {
+      "post": {
+        "summary": "还款试算",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.RepayTrialService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "loanOrderNo": {
+                        "type": "string"
+                      },
+                      "repayType": {
+                        "type": "string"
+                      },
+                      "periods": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "loanOrderNo",
+                      "repayType",
+                      "periods"
+                    ],
+                    "x-apifox-orders": [
+                      "loanOrderNo",
+                      "repayType",
+                      "periods"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "channelCode": "string",
+                "reqid": "string",
+                "data": {
+                  "loanOrderNo": "FL7312317005809649543",
+                  "repayType": "normal",
+                  "periods": 1
+                },
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297475020-run",
+        "security": []
+      }
+    },
+    "/test/open/api/submitRepay": {
+      "post": {
+        "summary": "还款申请",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.RepayApplyService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "loanOrderNo": {
+                        "type": "string"
+                      },
+                      "repayOrderNo": {
+                        "type": "string"
+                      },
+                      "repayType": {
+                        "type": "string"
+                      },
+                      "thirdLoanOrderNo": {
+                        "type": "string"
+                      },
+                      "periods": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "loanOrderNo",
+                      "repayOrderNo",
+                      "repayType",
+                      "thirdLoanOrderNo",
+                      "periods"
+                    ],
+                    "x-apifox-orders": [
+                      "loanOrderNo",
+                      "repayOrderNo",
+                      "repayType",
+                      "thirdLoanOrderNo",
+                      "periods"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "channelCode": "string",
+                "reqid": "string",
+                "data": {
+                  "loanOrderNo": "FL7312317005809649543",
+                  "repayOrderNo": "1",
+                  "repayType": "normal",
+                  "thirdLoanOrderNo": "213123",
+                  "periods": 1
+                },
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297475299-run",
+        "security": []
+      }
+    },
+    "/test/open/api/queryRepay": {
+      "post": {
+        "summary": "还款结果查询",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.RepayResultQueryService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "loanOrderNo": {
+                        "type": "string"
+                      },
+                      "repayOrderNo": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "loanOrderNo",
+                      "repayOrderNo"
+                    ],
+                    "x-apifox-orders": [
+                      "loanOrderNo",
+                      "repayOrderNo"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "type": "string",
+                "reqid": "string",
+                "data": "string",
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297475351-run",
+        "security": []
+      }
+    },
+    "/test/open/api/supportBank": {
+      "post": {
+        "summary": "查询支持的银行机构",
+        "x-apifox-folder": "信用家全流程API对接",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "Open.SupportBankService",
+        "tags": [
+          "信用家全流程API对接"
+        ],
+        "parameters": [
+          {
+            "name": "X-Login-User",
+            "in": "header",
+            "description": "",
+            "example": "katana",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Login-Uid",
+            "in": "header",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelCode": {
+                    "type": "string"
+                  },
+                  "reqid": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "creditOrderNo": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "creditOrderNo"
+                    ],
+                    "x-apifox-orders": [
+                      "creditOrderNo"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  },
+                  "encryptAesKey": {
+                    "type": "string"
+                  },
+                  "sign": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-orders": [
+                  "channelCode",
+                  "reqid",
+                  "data",
+                  "timestamp",
+                  "encryptAesKey",
+                  "sign"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "channelCode": "string",
+                "reqid": "string",
+                "data": {
+                  "creditOrderNo": "2312312312"
+                },
+                "timestamp": "string",
+                "encryptAesKey": "string",
+                "sign": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/5908656/apis/api-297475463-run",
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {}
+  },
+  "servers": []
+}
