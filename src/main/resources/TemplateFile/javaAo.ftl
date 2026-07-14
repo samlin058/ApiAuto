@@ -1,11 +1,11 @@
-package Data.Apis.${packageName};
+package Data.ApisLayer.${packageName};
 <#list methods as method>
 <#if method.paramName !="NULL">import Data.Ro.${packageName}.${method.paramName};</#if>
 <#if method.aoIsList == "true">import java.util.List;</#if>
 <#sep></#sep>
 </#list>
 import Service.Annotations.AnnotationLibrary.Mapping;
-import Service.Base.ApiBase;
+import Service.Core.ApiBase;
 
 
 public class ${fileName} extends ApiBase {

@@ -2,9 +2,9 @@ package Application.TestCase.LoanMarket.TestCase.Zy;
 
 import Application.DataFactory.LoanMarket.H5ProcessContext;
 import Application.DataFactory.LoanMarket.XYJH5Process;
-import Data.Apis.LoanMarket.RepayPlanController;
+import Data.ApisLayer.LoanMarket.RepayPlanController;
 import Data.Ro.LoanMarket.RepayPlanControllerPlanCalculateRo;
-import Service.Base.BaseTestCase2;
+import Service.Core.BaseTestCase;
 import Service.Util.Universal.IntegerHandler;
 import Service.Util.Universal.StringHandler;
 import org.testng.annotations.DataProvider;
@@ -15,7 +15,7 @@ import java.util.*;
 /**
  * 借款试算测试
  */
-public class Loan_CalculationTest extends BaseTestCase2 {
+public class Loan_CalculationTest extends BaseTestCase {
     private static final RepayPlanController repayPlanController = new RepayPlanController();
 
     // 正向用例

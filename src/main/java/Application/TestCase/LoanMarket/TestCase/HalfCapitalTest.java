@@ -1,18 +1,18 @@
 package Application.TestCase.LoanMarket.TestCase;
 
-import Application.DBoperation.LoanMarket.CreditInfo;
-import Application.DBoperation.LoanMarket.Partner;
+import Data.DBoperation.LoanMarket.CreditInfo;
+import Data.DBoperation.LoanMarket.Partner;
 import Application.DataFactory.LoanMarket.H5ProcessContext;
 import Application.DataFactory.LoanMarket.XYJH5Process;
-import Data.Apis.LoanMarket.AgreementController;
+import Data.ApisLayer.LoanMarket.AgreementController;
 import Data.Ro.LoanMarket.AgreementControllerGetRo;
-import Service.Base.BaseTestCase2;
+import Service.Core.BaseTestCase;
 import Service.Util.Universal.JsonHandler;
 import Service.Util.Universal.StringHandler;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class HalfCapitalTest extends BaseTestCase2 {
+public class HalfCapitalTest extends BaseTestCase {
     @DataProvider(name = "partnerData")
     private Object[][] partnerData() {
         return new Object[][]{
@@ -30,7 +30,7 @@ public class HalfCapitalTest extends BaseTestCase2 {
         }
         String checkResult = Partner.getNewestCheckInfo(context.getUid());
         String checkStatus = JsonHandler.readStringByJsonPath("$.*.result", checkResult);
-        BaseTestCase2.assertContains(checkStatus, "REJECT");
+        BaseTestCase.assertContains(checkStatus, "REJECT");
     }
 
     @Test(testName = "撞库通过，授信失败", dataProvider = "partnerData",enabled = false)
@@ -41,7 +41,7 @@ public class HalfCapitalTest extends BaseTestCase2 {
         String creditResult = CreditInfo.getNewestCreditInfo(context.getUid());
         String creditStatus = JsonHandler.readStringByJsonPath("$.*.status", creditResult);
         Boolean flag = checkStatus.equalsIgnoreCase("PASS") && creditStatus.equalsIgnoreCase("REJECT");
-        BaseTestCase2.assertEq(flag, true);
+        BaseTestCase.assertEq(flag, true);
     }
 
     @Test(testName = "准入通过，授信通过", dataProvider = "partnerData", enabled = false)
@@ -55,7 +55,7 @@ public class HalfCapitalTest extends BaseTestCase2 {
         String creditStatus = JsonHandler.readStringByJsonPath("$.*.status", creditResult);
         System.out.println("授信结果：" + creditStatus);
         Boolean flag = checkStatus.contains("PASS") && creditStatus.contains("PASSED");
-        BaseTestCase2.assertEq(flag, true);
+        BaseTestCase.assertEq(flag, true);
     }
 
     @Test(testName = "查看授信协议", dataProvider = "partnerData", enabled = false)
@@ -63,7 +63,7 @@ public class HalfCapitalTest extends BaseTestCase2 {
         H5ProcessContext context = XYJH5Process.H5processByPartner(partnerCode, XYJH5Process.H5ProcessStage.CREDIT_APPLY);
         AgreementController agreementController = new AgreementController();
         String requestResult = agreementController.get(new AgreementControllerGetRo(context.getUid(), partnerCode));
-        BaseTestCase2.assertContains(requestResult, protocol);
+        BaseTestCase.assertContains(requestResult, protocol);
     }
 
 

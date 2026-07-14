@@ -1,6 +1,6 @@
 package Data.Ro.BlackShark;
 
-import Data.Apis.BlackShark.StrategyResultPrecentConfigController;
+import Data.ApisLayer.BlackShark.StrategyResultPrecentConfigController;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
 import Service.Annotations.AnnotationLibrary.Body;
 import java.util.List;

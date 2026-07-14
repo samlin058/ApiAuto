@@ -1,15 +1,21 @@
-package Service.Base;
+package Service.Core;
 
 import Service.Annotations.AnnotationProcessor.AnnotationInfoExtractor;
-import Service.Config.Config;
-import Service.Config.Login;
-import Service.Enum.ProjectEnum;
+import Service.Listen.ReportContext;
 import Service.Util.Universal.*;
+import com.alibaba.fastjson.JSON;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * API 接口控制器基类，封装 HTTP 请求的通用逻辑。
+ * <p>
+ * 各业务域的接口控制器（如 {@code Data.Apis.*}）继承此类，通过注解驱动的方式
+ * 自动解析请求路径、请求头、参数及请求体，并发起 HTTP 调用。
+ * </p>
+ */
 @lombok.Data
 public class ApiBase {
     // 服务域名orIP
@@ -49,6 +55,7 @@ public class ApiBase {
      */
     public String http() {
         String result = "";
+        long start = System.currentTimeMillis();
         try {
             InitProjectHeader(this);
             // 获取调用http()的方法名
@@ -60,6 +67,7 @@ public class ApiBase {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        recordHttpCall(this, result, System.currentTimeMillis() - start);
         if (Is_Print_Logger.equalsIgnoreCase("true")) {
             if (!GetStackInfoHandler.isCalledFromDataFactory()) {
                 StringHandler.jsonFormatOutput(result);
@@ -77,7 +85,9 @@ public class ApiBase {
     public String http(ApiBase ro) {
         InitProjectHeader(ro);
         AnnotationInfoExtractor.extractAnnotations(ro);
+        long start = System.currentTimeMillis();
         String result = HttpHandler.http(ro);
+        recordHttpCall(ro, result, System.currentTimeMillis() - start);
         // isPass(result);
         if (Is_Print_Logger.equalsIgnoreCase("true")) {
             if (!GetStackInfoHandler.isCalledFromDataFactory()) {
@@ -96,7 +106,9 @@ public class ApiBase {
     public String http(List<?> roList) {
         ApiBase ro = AnnotationInfoExtractor.extractAnnotations(roList);
         InitProjectHeader(ro);
+        long start = System.currentTimeMillis();
         String result = HttpHandler.http(ro);
+        recordHttpCall(ro, result, System.currentTimeMillis() - start);
         // isPass(result);
         if (Is_Print_Logger.equalsIgnoreCase("true")) {
             if (!GetStackInfoHandler.isCalledFromDataFactory()) {
@@ -104,6 +116,29 @@ public class ApiBase {
             }
         }
         return result;
+    }
+
+    private static void recordHttpCall(ApiBase ro, String response, long costMs) {
+        if (ro == null || GetStackInfoHandler.isCalledFromDataFactory()) {
+            return;
+        }
+        String requestBody = "";
+        try {
+            if (ro.getBody() != null && !ro.getBody().isEmpty()) {
+                requestBody = JSON.toJSONString(ro.getBody());
+            } else if (ro.getParam() != null && !ro.getParam().isEmpty()) {
+                requestBody = JSON.toJSONString(ro.getParam());
+            }
+        } catch (Exception e) {
+            requestBody = String.valueOf(ro.getBody() != null ? ro.getBody() : ro.getParam());
+        }
+        ReportContext.addHttpCall(
+                ro.getRequestType() == null ? "" : ro.getRequestType(),
+                ro.getUrl() == null ? "" : ro.getUrl(),
+                requestBody,
+                response,
+                costMs
+        );
     }
 
     /**
@@ -170,6 +205,6 @@ public class ApiBase {
     }
 
     public static String getConfigValue(String rootPath, String cacheKey) {
-        return JsonHandler.readStringByJsonPath(rootPath, Config.getCacheDataAsString(cacheKey));
+        return JsonHandler.readStringByJsonPath(rootPath, TestContext.getCacheDataAsString(cacheKey));
     }
 }

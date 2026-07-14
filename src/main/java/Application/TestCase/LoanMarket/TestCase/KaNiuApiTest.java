@@ -1,9 +1,9 @@
 package Application.TestCase.LoanMarket.TestCase;
 
-import Data.Apis.LoanMarket.TestKaniuController;
+import Data.ApisLayer.LoanMarket.TestKaniuController;
 import Data.Ro.LoanMarket.TestKaniuControllerKaNiuUserCheckServiceRo;
 import Data.Ro.LoanMarket.TestKaniuControllerKaNiuUserCreditServiceRo;
-import Service.Enum.DatabaseEnum;
+import Service.Core.ProjectEnum;
 import Service.Util.Universal.DateHandler;
 import Service.Util.Universal.JDBCHandler;
 import Service.Util.Universal.JsonHandler;
@@ -32,7 +32,7 @@ public class KaNiuApiTest {
             try {
                 Thread.sleep(10000);
                 String sql = "select t1.status  from tbl_credit_assessment_detail t1 join tbl_user tu on t1.uid =tu.id where tu.mobile  =?;";
-                String statusJson = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, sql, phone);
+                String statusJson = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, sql, phone);
                 System.out.println("路由状态：" + JsonHandler.readValueByJsonPath("$.status",statusJson));
                /* // 提现
                 String LoanConfirmUrl =testKaniuController.KaNiuLoanConfirmService(new TestKaniuControllerKaNiuLoanConfirmServiceRo(userId, orderId, loanId));
@@ -47,7 +47,7 @@ public class KaNiuApiTest {
                     try {
                         Thread.sleep(5000);
                         String sql = "select t1.status  from tbl_credit_assessment_detail t1 join tbl_user tu on t1.uid =tu.id where tu.mobile  =?;";
-                        String statusJson = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, sql, phone);
+                        String statusJson = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, sql, phone);
                         System.out.println("statusJson" + statusJson);
                         if (statusJson.equals("SUCCEED")) {
                             // 提现

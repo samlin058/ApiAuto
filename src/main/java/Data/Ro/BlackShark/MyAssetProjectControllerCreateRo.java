@@ -1,11 +1,11 @@
 package Data.Ro.BlackShark;
 
-import Data.Apis.BlackShark.MyAssetProjectController;
+import Data.ApisLayer.BlackShark.MyAssetProjectController;
 import Service.Annotations.AnnotationLibrary.Body;
 import Service.Annotations.AnnotationLibrary.Dependence;
 import Service.Annotations.AnnotationLibrary.Dependences;
 import Service.Annotations.AnnotationProcessor.*;
-import Service.Config.Config;
+import Service.Core.TestContext;
 import Service.Util.Universal.JsonHandler;
 import lombok.Data;
 
@@ -37,7 +37,7 @@ public class MyAssetProjectControllerCreateRo extends MyAssetProjectController {
     }
 
     private String defaultProjectTypeCode() {
-        return JsonHandler.readStringByJsonPath("$.data.[0].value", Config.getCacheDataAsString("projectTypeCode_MyAssetProjectControllerCreateRo"));
+        return JsonHandler.readStringByJsonPath("$.data.[0].value", TestContext.getCacheDataAsString("projectTypeCode_MyAssetProjectControllerCreateRo"));
     }
 
     /**
@@ -54,7 +54,7 @@ public class MyAssetProjectControllerCreateRo extends MyAssetProjectController {
     }
 
     private List<?> defaultManagerList() {
-        String json = Config.getCacheDataAsString("managerList_MyAssetProjectControllerCreateRo");
+        String json = TestContext.getCacheDataAsString("managerList_MyAssetProjectControllerCreateRo");
         String pmCode = (String) JsonHandler.readValueByJsonPath("$.data.[0].value", json);
         String pmName = (String) JsonHandler.readValueByJsonPath("$.data.[0].label", json);
         pm_MyAssetProjectControllerCreateRo ManagerList_myAssetProjectControllerCreateRo = new pm_MyAssetProjectControllerCreateRo();

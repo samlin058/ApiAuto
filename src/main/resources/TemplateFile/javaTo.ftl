@@ -1,14 +1,14 @@
 package Application.TestCase.${projectEnum}.ApiTest;
 
 
-import Data.Apis.${projectEnum}.${controller};
+import Data.ApisLayer.${projectEnum}.${controller};
 <#list methods as method>
 <#if method.roName != "noRo">import Data.Ro.${projectEnum}.${method.roName};</#if>
 </#list>
-import Service.Base.ApiBase;
-import Service.Base.BaseTestCase;
-import Service.Config.Login;
-import Service.Enum.ProjectEnum;
+import Service.Core.ApiBase;
+import Service.Core.BaseTestCase;
+import Service.Core.Login;
+import Service.Core.ProjectEnum;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 

@@ -1,6 +1,6 @@
 package Data.Ro.Goblin;
 
-import Data.Apis.Goblin.QueryController;
+import Data.ApisLayer.Goblin.QueryController;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
 import Service.Annotations.AnnotationLibrary.Param;
 

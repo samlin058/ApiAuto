@@ -2,9 +2,9 @@ package Application.TestCase.LoanMarket.TestCase.Zy;
 
 import Application.DataFactory.LoanMarket.H5ProcessContext;
 import Application.DataFactory.LoanMarket.XYJH5Process;
-import Data.Apis.LoanMarket.RepayPlanController;
+import Data.ApisLayer.LoanMarket.RepayPlanController;
 import Data.Ro.LoanMarket.RepayPlanControllerPaymentRo;
-import Service.Base.BaseTestCase2;
+import Service.Core.BaseTestCase;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * 还款测试 - 数据驱动优化版本
  */
-public class Loan_repayApplyTest extends BaseTestCase2 {
+public class Loan_repayApplyTest extends BaseTestCase {
     static RepayPlanController repayPlanController = new RepayPlanController();
 
     // 产品代码配置，方便维护和扩展

@@ -1,6 +1,6 @@
 package Data.Ro.IndoArk;
 
-import Data.Apis.IndoArk.ReduceController;
+import Data.ApisLayer.IndoArk.ReduceController;
 import Service.Annotations.AnnotationLibrary.Body;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
 

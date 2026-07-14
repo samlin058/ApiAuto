@@ -1,12 +1,12 @@
 package Application.DataFactory.BlackShark;
 
 
-import Data.Apis.BlackShark.AssetProjectController;
-import Data.Apis.BlackShark.MyAssetProjectController;
-import Data.Apis.BlackShark.PreAssetPkgController;
-import Data.Apis.BlackShark.ProjectUserController;
+import Data.ApisLayer.BlackShark.AssetProjectController;
+import Data.ApisLayer.BlackShark.MyAssetProjectController;
+import Data.ApisLayer.BlackShark.PreAssetPkgController;
+import Data.ApisLayer.BlackShark.ProjectUserController;
 import Data.Ro.BlackShark.*;
-import Service.Enum.DatabaseEnum;
+import Service.Core.ProjectEnum;
 import Service.Util.Universal.JDBCHandler;
 import Service.Util.Universal.JsonHandler;
 import Service.Util.Universal.StringHandler;
@@ -86,7 +86,7 @@ public class ProjectManagement {
         addAssetPackage(projectName);
         // 修改项目状态
         String sql = "UPDATE pre_asset_project SET process_state = \"EXECUTION\" WHERE project_name = ?;";
-        JDBCHandler.AddDeleteAlter(DatabaseEnum.BlackShark, sql, projectName);
+        JDBCHandler.AddDeleteAlter(ProjectEnum.BlackShark, sql, projectName);
     }
 
     /**
@@ -133,7 +133,7 @@ public class ProjectManagement {
 
     public  void addProjectPermissionByPkgNo(String assetPkgNo, String userName) {
         String sql = "select project_code projectCode from pre_asset_pkg_base where asset_pkg_no =? order by id desc;";
-        String projectCode = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.BlackShark, sql, assetPkgNo);
+        String projectCode = JDBCHandler.queryFirstRowAsJson(ProjectEnum.BlackShark, sql, assetPkgNo);
         addProjectPermission(projectCode, userName);
     }
 

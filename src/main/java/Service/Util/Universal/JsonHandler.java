@@ -1,6 +1,6 @@
 package Service.Util.Universal;
 
-import Service.Config.Config;
+import Service.Core.TestContext;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -895,7 +895,7 @@ public class JsonHandler {
      * @return 解析后的值
      */
     public static String getCacheDataByPathAndKey(String path, String key) {
-        String jsonData = Config.getCacheDataAsString(key);
+        String jsonData = TestContext.getCacheDataAsString(key);
         Object result = readValueByJsonPath(path, jsonData);
         return result != null ? result.toString() : null;
     }

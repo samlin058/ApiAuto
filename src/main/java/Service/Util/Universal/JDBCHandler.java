@@ -1,7 +1,7 @@
 
 package Service.Util.Universal;
 
-import Service.Enum.DatabaseEnum;
+import Service.Core.ProjectEnum;
 import org.apache.log4j.Logger;
 
 import javax.sql.DataSource;
@@ -32,7 +32,7 @@ public class JDBCHandler {
     private static final Map<String, DataSource> dataSourceCache = new ConcurrentHashMap<>();
     private static final Map<String, AtomicInteger> connectionCounters = new ConcurrentHashMap<>();
     // 调用者类名缓存，避免重复解析
-    private static final Map<String, DatabaseEnum> callerDatabaseCache = new ConcurrentHashMap<>();
+    private static final Map<String, ProjectEnum> callerDatabaseCache = new ConcurrentHashMap<>();
 
     // 数据库驱动加载
     static {
@@ -269,13 +269,14 @@ public class JDBCHandler {
      * @return 受影响的行数
      * @throws RuntimeException 当操作失败时抛出
      */
-    public static int AddDeleteAlter(DatabaseEnum database, String sql, Object... params) {
-        if (database == null) {
-            throw new RuntimeException("Database enum cannot be null");
+    public static int AddDeleteAlter(ProjectEnum project, String sql, Object... params) {
+        if (project == null) {
+            throw new RuntimeException("Project enum cannot be null");
         }
+        validateProjectDatabase(project);
         validateSql(sql);
 
-        try (Connection conn = getConn(database.getDataBaseCode());
+        try (Connection conn = getConn(project.getDatabaseCode());
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             setParameters(pstmt, params);
@@ -300,15 +301,16 @@ public class JDBCHandler {
      * @return 查询结果列表
      * @throws RuntimeException 当查询失败时抛出
      */
-    private static List<Map<String, Object>> executeQuery(DatabaseEnum database, String sql, Object... params) {
-        if (database == null) {
-            throw new RuntimeException("Database enum cannot be null");
+    private static List<Map<String, Object>> executeQuery(ProjectEnum project, String sql, Object... params) {
+        if (project == null) {
+            throw new RuntimeException("Project enum cannot be null");
         }
+        validateProjectDatabase(project);
         validateSql(sql);
 
         List<Map<String, Object>> recordList = new ArrayList<>();
 
-        try (Connection conn = getConn(database.getDataBaseCode());
+        try (Connection conn = getConn(project.getDatabaseCode());
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             setParameters(pstmt, params);
@@ -348,9 +350,9 @@ public class JDBCHandler {
      * @param params   参数数组
      * @return JSON字符串[{"card_no":"6212264963288427184"},{"card_no":"6212264963288427184"}]，查询失败时返回"[]"
      */
-    public static String queryRowsAsJsonArray(DatabaseEnum database, String sql, Object... params) {
+    public static String queryRowsAsJsonArray(ProjectEnum project, String sql, Object... params) {
         try {
-            List<Map<String, Object>> queryResultList = executeQuery(database, sql, params);
+            List<Map<String, Object>> queryResultList = executeQuery(project, sql, params);
             String result = DataConverterHandler.objectToJson(queryResultList);
             return (result != null && !result.isEmpty()) ? result : "[]";
         } catch (Exception e) {
@@ -367,9 +369,9 @@ public class JDBCHandler {
      * @param params   参数数组
      * @return 第一条记录的JSON字符串，例如：{"card_no":"6212264963288427184"},无结果时返回"{}"
      */
-    public static String queryFirstRowAsJson(DatabaseEnum database, String sql, Object... params) {
+    public static String queryFirstRowAsJson(ProjectEnum project, String sql, Object... params) {
         try {
-            List<Map<String, Object>> queryResultList = executeQuery(database, sql, params);
+            List<Map<String, Object>> queryResultList = executeQuery(project, sql, params);
 
             if (queryResultList == null || queryResultList.isEmpty()) {
                 return "{}";
@@ -393,7 +395,7 @@ public class JDBCHandler {
      *
      * @return 数据库枚举
      */
-    private static DatabaseEnum getCallerDatabase() {
+    private static ProjectEnum getCallerDatabase() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 
         // 跳过当前方法和getStackTrace方法，找到真正的调用者
@@ -419,13 +421,13 @@ public class JDBCHandler {
      * @param rule     JSON路径规则
      * @return 提取的数据，失败时返回null
      */
-    public static String querySqlAndFetchByRule(DatabaseEnum database, String sql, String params, String rule) {
+    public static String querySqlAndFetchByRule(ProjectEnum project, String sql, String params, String rule) {
         if (rule == null || rule.trim().isEmpty()) {
             throw new RuntimeException("JSON path rule cannot be null or empty");
         }
 
         try {
-            List<Map<String, Object>> queryResultList = executeQuery(database, sql, params);
+            List<Map<String, Object>> queryResultList = executeQuery(project, sql, params);
             String resultJson = DataConverterHandler.listToJsonStr(queryResultList);
 
             if (resultJson == null || resultJson.trim().isEmpty()) {
@@ -449,8 +451,8 @@ public class JDBCHandler {
      */
     public static String queryRowsAsJsonArray(String sql, String uid) {
         try {
-            DatabaseEnum database = getCallerDatabase();
-            return queryRowsAsJsonArray(database, sql, uid);
+            ProjectEnum project = getCallerDatabase();
+            return queryRowsAsJsonArray(project, sql, uid);
         } catch (Exception e) {
             logger.error("自动推断数据库查询失败: " + e.getMessage(), e);
             return "[]";
@@ -467,8 +469,8 @@ public class JDBCHandler {
      */
     public static String queryFirstRowAsJson(String sql, String uid) {
         try {
-            DatabaseEnum database = getCallerDatabase();
-            return queryFirstRowAsJson(database, sql, uid);
+            ProjectEnum project = getCallerDatabase();
+            return queryFirstRowAsJson(project, sql, uid);
         } catch (Exception e) {
             logger.error("自动推断数据库查询失败: " + e.getMessage(), e);
             return "{}";
@@ -481,29 +483,25 @@ public class JDBCHandler {
      * @param className 完整的类名
      * @return 对应的数据库枚举
      */
-    private static DatabaseEnum getDatabaseFromClassName(String className) {
+    private static ProjectEnum getDatabaseFromClassName(String className) {
         // 解析包路径，提取项目名
         String[] packageParts = className.split("\\.");
 
         // 查找包含项目名的包路径
         for (String part : packageParts) {
-            // 根据包名映射到对应的数据库枚举
-            switch (part) {
-                case "LoanMarket":
-                    return DatabaseEnum.LoanMarkest;
-                case "BlackShark":
-                    return DatabaseEnum.BlackShark;
-                case "Alchemist":
-                    return DatabaseEnum.Alchemist;
-                case "Goblin":
-                    return DatabaseEnum.Goblin;
-                default:
-                    // 继续查找
-                    break;
+            ProjectEnum project = ProjectEnum.getByCode(part);
+            if (project != null && project.getDatabaseCode() != null) {
+                return project;
             }
         }
         // 如果没有找到匹配的项目名，抛出异常
-        throw new RuntimeException("无法从类名 '" + className + "' 中推断出对应的数据库枚举");
+        throw new RuntimeException("无法从类名 '" + className + "' 中推断出对应的项目枚举");
+    }
+
+    private static void validateProjectDatabase(ProjectEnum project) {
+        if (project.getDatabaseCode() == null || project.getDatabaseCode().trim().isEmpty()) {
+            throw new RuntimeException("Project '" + project.getCode() + "' has no database configured");
+        }
     }
 
 }

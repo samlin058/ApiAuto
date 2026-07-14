@@ -1,12 +1,12 @@
 package Data.Ro.LoanMarketRust;
 
-import Data.Apis.LoanMarketRust.channel_router_api;
+import Data.ApisLayer.LoanMarketRust.channel_router_api;
 import Service.Annotations.AnnotationLibrary.Body;
 import Service.Annotations.AnnotationLibrary.Dependence;
 import Service.Annotations.AnnotationLibrary.JsonArray;
 import Service.Annotations.AnnotationLibrary.PathParam;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
-import Service.Config.Config;
+import Service.Core.TestContext;
 import Service.Util.Universal.JsonHandler;
 import Service.Util.Universal.StringHandler;
 import Service.Util.Universal.TimestampHandler;
@@ -40,7 +40,7 @@ public class channel_router_apiModify_router_partherRo extends channel_router_ap
     @Body
     public Integer useNum = 0;
 
-    final static String get_enable_partner_all = JsonHandler.readArrayAsStringByJsonPath("$.data",Config.getCacheDataAsString("get_enable_partner_all"));
+    final static String get_enable_partner_all = JsonHandler.readArrayAsStringByJsonPath("$.data",TestContext.getCacheDataAsString("get_enable_partner_all"));
 
     static channel_router_api apiService = new channel_router_api();
 

@@ -1,6 +1,5 @@
-package Service.Config;
+package Service.Core;
 
-import Service.Enum.ProjectEnum;
 import Service.Pojo.LoginObject;
 import Service.Util.Universal.FileHandler;
 import Service.Util.Universal.GetStackInfoHandler;
@@ -11,6 +10,13 @@ import com.alibaba.fastjson.JSONArray;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 登录认证信息管理类，负责加载和提供各项目的请求头/Token 等登录凭证。
+ * <p>
+ * 默认登录数据来自 {@code defaultLogin.json}，动态登录数据来自 {@code login.json}，
+ * 按项目（{@link ProjectEnum}）和用户名匹配对应的认证信息。
+ * </p>
+ */
 public class Login {
     // 默认登录数据信息
     private static final List<LoginObject> DEFAULT_LOGIN_OBJECTS = loadDefaultLoginData();

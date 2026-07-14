@@ -1,6 +1,6 @@
 package Data.Ro.BlackShark;
 
-import Data.Apis.BlackShark.AutoOutboundController;
+import Data.ApisLayer.BlackShark.AutoOutboundController;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
 import Service.Annotations.AnnotationLibrary.Param;
 

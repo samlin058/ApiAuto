@@ -1,6 +1,6 @@
 package Data.Ro.BlackShark;
 
-import Data.Apis.BlackShark.RiskReportController;
+import Data.ApisLayer.BlackShark.RiskReportController;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
 import Service.Annotations.AnnotationLibrary.Body;
 

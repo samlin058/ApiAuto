@@ -1,12 +1,11 @@
 package Application.DataFactory.LoanMarket;
 
-import Application.DBoperation.LoanMarket.routing;
-import Data.Apis.LoanMarket.BackDoorContoller;
-import Data.Apis.LoanMarket.UserController;
+import Data.DBoperation.LoanMarket.routing;
+import Data.ApisLayer.LoanMarket.BackDoorContoller;
+import Data.ApisLayer.LoanMarket.UserController;
 import Data.Ro.LoanMarket.BackDoorContollerEncryptRo;
 import Data.Ro.LoanMarket.UserControllerLoginRo;
-import Service.Enum.DatabaseEnum;
-import Service.Enum.ProjectEnum;
+import Service.Core.ProjectEnum;
 import Service.Util.Universal.*;
 import Service.Util.variable.IDNoGeneratorHandler;
 import Service.Util.variable.PhoneNumberGeneratorHandler;
@@ -112,7 +111,7 @@ public class XYJH5User {
      */
     public static String getUserId(String phone, String channelCode, boolean isAllUserInfo) {
         String sql = "SELECT id FROM tbl_user WHERE mobile = ? and platform=?";
-        String queryResult = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, sql, phone, channelCode);
+        String queryResult = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, sql, phone, channelCode);
         if (!"{}".equals(queryResult)) {
             return JsonHandler.readStringByJsonPath("$.id", queryResult);
         } else {
@@ -197,7 +196,7 @@ public class XYJH5User {
      */
     public static void deleteUserByPhone(String phone) {
         String getUidSql = "select id from tbl_user where mobile=? ";
-        String uidJson = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, getUidSql, phone);
+        String uidJson = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, getUidSql, phone);
         String uid = JsonHandler.readStringByJsonPath("$.id", uidJson);
         if (!StringHandler.isEmpty(uid)) {
             extracted(uid);
@@ -237,16 +236,16 @@ public class XYJH5User {
         String deleteSql8 = " delete FROM tbl_user_card  where uid=? ";
         String deleteSql9 = " delete from tbl_user_card_bind_task  where uid=? ";
         String deleteSql10 = " delete from tbl_user_device_info where uid=?  ";
-        JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, deleteSql1, uid);
-        JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, deleteSql2, uid);
-        JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, deleteSql3, uid);
-        JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, deleteSql4, uid);
-        JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, deleteSql5, uid);
-        JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, deleteSql6, uid);
-        JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, deleteSql7, uid);
-        JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, deleteSql8, uid);
-        JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, deleteSql9, uid);
-        JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, deleteSql10, uid);
+        JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, deleteSql1, uid);
+        JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, deleteSql2, uid);
+        JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, deleteSql3, uid);
+        JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, deleteSql4, uid);
+        JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, deleteSql5, uid);
+        JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, deleteSql6, uid);
+        JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, deleteSql7, uid);
+        JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, deleteSql8, uid);
+        JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, deleteSql9, uid);
+        JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, deleteSql10, uid);
     }
 
     /**
@@ -262,7 +261,7 @@ public class XYJH5User {
             String url = "http://lumos-h5.torch.wke-office.test.wacai.info/lumos/home?channelCode=" + channelCode + "&jointToken=" + getEncryptReq(phone, channelCode);
             HttpHandler.getHttp(url, null);
             String sql = "select id from tbl_user where mobile = ?";
-            String queryResult = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, sql, phone);
+            String queryResult = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, sql, phone);
             if (StringHandler.isEmpty(queryResult)) {
                 System.out.println(channelCode + "渠道注册失败，请检查联登服务");
                 return null;
@@ -297,7 +296,7 @@ public class XYJH5User {
             String url = "http://lumos-h5.torch.wke-office.test.wacai.info/lumos/home?channelCode=" + channelCode + "&jointToken=" + getEncryptReq(phone, channelCode);
             HttpHandler.getHttp(url, null);
             String sql = "select id from tbl_user where mobile = ?";
-            String queryResult = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, sql, phone);
+            String queryResult = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, sql, phone);
             if (StringHandler.isEmpty(queryResult)) {
                 System.out.println(channelCode + "渠道注册失败，请检查联登服务");
                 return null;
@@ -327,7 +326,7 @@ public class XYJH5User {
     private static void fillUserInfo(String uid, Boolean isAllUserInfo) {
         if (isAllUserInfo) {
             String sql = "insert into tbl_user_device_info  (uid,os,os_version,version,ip,gps_lat,gps_lng) values(?,'iOS','16.6','iPhone 16','172.18.32.104','30.22034','120.27657');";
-            JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, sql, uid);
+            JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, sql, uid);
         }
         // 用户资料
         HashMap<String, String> params = new HashMap<>();
@@ -343,7 +342,7 @@ public class XYJH5User {
     private static void fillUserInfoWithoutUserData(String uid, Boolean isAllUserInfo) {
         if (isAllUserInfo) {
             String sql = "insert into tbl_user_device_info  (uid,os,os_version,version,ip,gps_lat,gps_lng) values(?,'iOS','16.6','iPhone 16','172.18.32.104','30.22034','120.27657');";
-            JDBCHandler.AddDeleteAlter(DatabaseEnum.LoanMarkest, sql, uid);
+            JDBCHandler.AddDeleteAlter(ProjectEnum.LoanMarket, sql, uid);
         }
         // 用户资料
         HashMap<String, String> params = new HashMap<>();
@@ -382,7 +381,7 @@ public class XYJH5User {
         UserInfo userInfo = getUserCheckInfo(uid);
         boolean hit = false;
         String precheckRuleSql = "select  * from tbl_precheck_rule_config where product_code = ?";
-        String precheckRuleSqlResult = JDBCHandler.queryRowsAsJsonArray(DatabaseEnum.LoanMarkest, precheckRuleSql, productCode);
+        String precheckRuleSqlResult = JDBCHandler.queryRowsAsJsonArray(ProjectEnum.LoanMarket, precheckRuleSql, productCode);
         if (!"[]".equals(precheckRuleSqlResult)) {
             // 遍历规则列表（仅处理启用的 status=1）
             List<String> types = JsonHandler.readStringListByJsonPath("$[*].type", precheckRuleSqlResult);
@@ -512,11 +511,11 @@ public class XYJH5User {
      */
     public static UserInfo getUserCheckInfo(String uid) {
         String sql = "select tu.mobile,tic.idno, tic.identification_address ,tfr.confidence ,tic.validity_end_date from tbl_user tu join tbl_user_info tui on tu.id =tui.uid join tbl_id_card tic on tu.id =tic.uid join tbl_faceid_record tfr on tu.id =tfr.uid where tu.id=?;";
-        String sqlResult = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, sql, uid);
+        String sqlResult = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, sql, uid);
         String idno = JsonHandler.readStringByJsonPath("$.idno", sqlResult);
         String validity_end_date = JsonHandler.readStringByJsonPath("$.validity_end_date", sqlResult);
         String getContactSql = "select mobile from tbl_user_contacts tuc where uid = ?";
-        String getContactSqlResult = JDBCHandler.queryRowsAsJsonArray(DatabaseEnum.LoanMarkest, getContactSql, uid);
+        String getContactSqlResult = JDBCHandler.queryRowsAsJsonArray(ProjectEnum.LoanMarket, getContactSql, uid);
         UserInfo userInfo = new UserInfo();
         userInfo.setAGE(IDNoGeneratorHandler.calculateAgeFromIdNo(idno));
         userInfo.setContact_mobile(JsonHandler.readStringListByJsonPath("$.*.mobile", getContactSqlResult));

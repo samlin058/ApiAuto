@@ -1,6 +1,6 @@
 package Data.Ro.IndoArk;
 
-import Data.Apis.IndoArk.LoanBatchController;
+import Data.ApisLayer.IndoArk.LoanBatchController;
 import Service.Annotations.AnnotationLibrary.Body;
 import Service.Annotations.AnnotationLibrary.Dependence;
 import Service.Annotations.AnnotationLibrary.Dependences;
@@ -20,7 +20,7 @@ public class LoanBatchControllerBatchAddRo extends LoanBatchController {
     public String commissionRate;
     @Body //默认查询的第一个来源
     public String loanSourceName = getConfigValue("$.data.[0].loanSourceName", "loanSourceName_LoanBatchControllerBatchAddRo");
-    //(String) JsonHandler.readValueByJsonPath("$.data.[0].loanSourceName", Config.getCacheDataAsString("loanSourceName_LoanBatchControllerBatchAddRo"));
+    //(String) JsonHandler.readValueByJsonPath("$.data.[0].loanSourceName", TestContext.getCacheDataAsString("loanSourceName_LoanBatchControllerBatchAddRo"));
     @Body
     public String commissionDate;
     @Body

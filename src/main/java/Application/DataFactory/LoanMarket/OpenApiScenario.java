@@ -1,10 +1,9 @@
 package Application.DataFactory.LoanMarket;
 
-import Data.Apis.LoanMarket.BackDoorContoller;
-import Data.Apis.LoanMarket.Open;
+import Data.ApisLayer.LoanMarket.BackDoorContoller;
+import Data.ApisLayer.LoanMarket.Open;
 import Data.Ro.LoanMarket.*;
-import Service.Enum.DatabaseEnum;
-import Service.Enum.ProjectEnum;
+import Service.Core.ProjectEnum;
 import Service.Util.Universal.*;
 import Service.Util.variable.BankCardHandler;
 import Service.Util.variable.ChinneNameHandler;
@@ -779,13 +778,13 @@ public class OpenApiScenario {
         try {
             // 获取借款订单id
             String getLoanIdSql = "select id from tbl_order where order_no = ? order by id desc limit 1;";
-            String getLoanIdSqlResult = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, getLoanIdSql, thirdLoanOrderNo);
+            String getLoanIdSqlResult = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, getLoanIdSql, thirdLoanOrderNo);
             String loanIdStr = JsonHandler.readStringByJsonPath("$.id", getLoanIdSqlResult);
             Integer loanId = Integer.parseInt(loanIdStr);
 
             // 获取产品code
             String getProductSql = "select product_code from tbl_order where order_no = ? order by id desc limit 1;";
-            String getProductCodeSqlResult = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, getProductSql, thirdLoanOrderNo);
+            String getProductCodeSqlResult = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, getProductSql, thirdLoanOrderNo);
             String productCode = JsonHandler.readStringByJsonPath("$.product_code", getProductCodeSqlResult);
 
             // 如果是RuiDai，可以mock放款成功
@@ -839,7 +838,7 @@ public class OpenApiScenario {
      */
     public static void loanRepay(String uid, OpenRepayTypeEnum repayType, String periods) {
         String sql = "select channel_code,channel_request_id from tbl_order where uid =? and loan_status ='LOAN_SUCCESS' order by id desc; ";
-        String sqlResult = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, sql, uid);
+        String sqlResult = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, sql, uid);
         String channelCode = JsonHandler.readStringByJsonPath("$.channel_code", sqlResult);
         String loanOrderNo = JsonHandler.readStringByJsonPath("$.channel_request_id", sqlResult);
         ;

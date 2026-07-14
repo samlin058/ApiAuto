@@ -1,8 +1,8 @@
 package Service.Annotations.AnnotationProcessor;
 
 import Service.Annotations.AnnotationLibrary.*;
-import Service.Base.ApiBase;
-import Service.Exception.DataValidationException;
+import Service.Core.ApiBase;
+import Service.Core.DataValidationException;
 import Service.Util.Universal.DataConverterHandler;
 import Service.Util.Universal.StringHandler;
 

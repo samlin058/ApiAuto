@@ -1,14 +1,14 @@
 package Data.Ro.BlackShark;
 
 import Application.DataFactory.BlackShark.ProjectManagement;
-import Data.Apis.BlackShark.PreAssetController;
-import Data.Apis.BlackShark.PreAssetPkgBatchController;
-import Data.Apis.BlackShark.PreAssetPkgController;
+import Data.ApisLayer.BlackShark.PreAssetController;
+import Data.ApisLayer.BlackShark.PreAssetPkgBatchController;
+import Data.ApisLayer.BlackShark.PreAssetPkgController;
 import Service.Annotations.AnnotationLibrary.Body;
 import Service.Annotations.AnnotationLibrary.Dependence;
 import Service.Annotations.AnnotationLibrary.Dependences;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
-import Service.Config.Config;
+import Service.Core.TestContext;
 import Service.Util.Universal.JsonHandler;
 import Service.Util.Universal.StringHandler;
 import org.json.JSONArray;
@@ -122,7 +122,7 @@ public class PreAssetControllerImportAssetRo extends PreAssetController {
     }
 
     private String defaultCalculateCost() {
-        String result = Config.getCacheData("calculateCost_PreAssetControllerImportAssetRo").toString();
+        String result = TestContext.getCacheData("calculateCost_PreAssetControllerImportAssetRo").toString();
         String PRINCIPAL = JsonHandler.readStringByJsonPath("$.data[0].value", result);
         String INTEREST = JsonHandler.readStringByJsonPath("$.data[1].value", result);
         return PRINCIPAL + "," + INTEREST;

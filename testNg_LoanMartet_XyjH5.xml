@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="false">
 
 	<listeners>
-		<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+		<listener class-name="Service.Listen.HtmlReportListener"/>
 		<listener class-name="Service.Listen.TestListener"/>
 	</listeners>
 

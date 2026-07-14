@@ -2,13 +2,13 @@ package Application.TestCase.LoanMarket.TestCase.Zy;
 
 import Application.DataFactory.LoanMarket.H5ProcessContext;
 import Application.DataFactory.LoanMarket.XYJH5Process;
-import Data.Apis.LoanMarket.CardController;
+import Data.ApisLayer.LoanMarket.CardController;
 import Data.Ro.LoanMarket.CardControllerBindCardApplyRo;
 import Data.Ro.LoanMarket.CardControllerInitBindCardTaskRo;
 import Data.Ro.LoanMarket.CardControllerSupportListRo;
 import Data.Ro.LoanMarket.CardControllerVerifyCardRo;
-import Service.Base.BaseTestCase2;
-import Service.Enum.DatabaseEnum;
+import Service.Core.BaseTestCase;
+import Service.Core.ProjectEnum;
 import Service.Util.variable.BankCardHandler;
 import Service.Util.Universal.JDBCHandler;
 import Service.Util.Universal.JsonHandler;
@@ -25,7 +25,7 @@ import static Application.DataFactory.LoanMarket.XYJH5Process.H5processByPartner
  * 绑卡测试类
  * 测试借款和还款过程中的银行卡绑定功能
  */
-public class Loan_bindCardTest extends BaseTestCase2 {
+public class Loan_bindCardTest extends BaseTestCase {
 
     // 常量定义
     private static final CardController CARD_CONTROLLER = new CardController();
@@ -232,7 +232,7 @@ public class Loan_bindCardTest extends BaseTestCase2 {
 
         while (System.currentTimeMillis() - start <= timeoutMs) {
             try {
-                String cardJson = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest,
+                String cardJson = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket,
                         "select card_no from tbl_user_card where uid =?", uid);
                 if (cardJson != null) {
                     lastCard = JsonHandler.readStringByJsonPath("$.card_no", cardJson);

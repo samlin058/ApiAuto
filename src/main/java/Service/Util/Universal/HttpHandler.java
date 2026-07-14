@@ -1,7 +1,7 @@
 package Service.Util.Universal;
 
-import Service.Base.ApiBase;
-import Service.Config.Login;
+import Service.Core.ApiBase;
+import Service.Core.Login;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.*;
@@ -91,7 +91,11 @@ public class HttpHandler {
                 paramsMap.forEach((key, value) -> uriBuilder.addParameter(key, value != null ? value.toString() : ""));
                 postRequest.setURI(uriBuilder.build());
             } catch (Exception e) {
-                e.printStackTrace(); // 可替换为日志记录
+                System.err.println("========== HTTP 请求构建失败 ==========");
+                System.err.println("请求地址 : " + ro.getUrl());
+                System.err.println("异常信息 : " + e.getMessage());
+                System.err.println("=====================================");
+                e.printStackTrace();
             }
         }
 
@@ -120,18 +124,43 @@ public class HttpHandler {
     }
 
     private static String sendPackage(HttpUriRequest request) {
-        //CloseableHttpClient httpClient = HttpClients.createDefault();
+        String method = request.getMethod();
+        String uri = String.valueOf(request.getURI());
         try (CloseableHttpClient httpClient = HttpClients.custom().setRetryHandler(new StandardHttpRequestRetryHandler(RETRY_TIMES, true)).build();
              CloseableHttpResponse response = httpClient.execute(request)) {
             int statusCode = response.getStatusLine().getStatusCode();
+            String reasonPhrase = response.getStatusLine().getReasonPhrase();
             String responseBody = response.getEntity() != null ? EntityUtils.toString(response.getEntity()) : "";
             if (statusCode != 200) {
-                throw new RuntimeException("HTTP request failed with status " + statusCode + ": " + request.getURI() + " | response: " + responseBody);
+                printHttpError(method, uri, statusCode, reasonPhrase, responseBody);
+                throw new RuntimeException("HTTP request failed with status " + statusCode + ": " + uri + " | response: " + responseBody);
             }
             return responseBody;
+        } catch (RuntimeException e) {
+            throw e;
         } catch (Exception e) {
-            throw new RuntimeException("HTTP request execution error: " + request.getURI(), e);
+            printHttpError(method, uri, e);
+            throw new RuntimeException("HTTP request execution error: " + uri, e);
         }
+    }
+
+    private static void printHttpError(String method, String uri, int statusCode, String reasonPhrase, String responseBody) {
+        System.err.println("========== HTTP 请求失败 ==========");
+        System.err.println("请求方式 : " + method);
+        System.err.println("请求地址 : " + uri);
+        System.err.println("状态码   : " + statusCode);
+        System.err.println("状态描述 : " + reasonPhrase);
+        System.err.println("响应内容 : " + responseBody);
+        System.err.println("===================================");
+    }
+
+    private static void printHttpError(String method, String uri, Exception e) {
+        System.err.println("========== HTTP 请求异常 ==========");
+        System.err.println("请求方式 : " + method);
+        System.err.println("请求地址 : " + uri);
+        System.err.println("异常信息 : " + e.getMessage());
+        System.err.println("===================================");
+        e.printStackTrace();
     }
 
     // 表单数据处理

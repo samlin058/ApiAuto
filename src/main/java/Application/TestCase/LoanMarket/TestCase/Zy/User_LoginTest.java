@@ -1,8 +1,8 @@
 package Application.TestCase.LoanMarket.TestCase.Zy;
 
-import Data.Apis.LoanMarket.UserController;
+import Data.ApisLayer.LoanMarket.UserController;
 import Data.Ro.LoanMarket.UserControllerLoginRo;
-import Service.Base.BaseTestCase2;
+import Service.Core.BaseTestCase;
 import Service.Util.Universal.JsonHandler;
 import Service.Util.variable.PhoneNumberGeneratorHandler;
 import org.testng.Assert;
@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 /**
  * 信用家H5页面用户登录接口测试
  */
-public class User_LoginTest extends BaseTestCase2 {
+public class User_LoginTest extends BaseTestCase {
     private final UserController userController = new UserController();
 
     /**
@@ -23,7 +23,7 @@ public class User_LoginTest extends BaseTestCase2 {
         String result = userController.login(new UserControllerLoginRo(phone, channel, verifyCode));
         Integer code = JsonHandler.readIntegerByJsonPath("$.code", result);
         System.out.println(casePoint);
-        BaseTestCase2.assertEq(code, expectResult);
+        BaseTestCase.assertEq(code, expectResult);
     }
 
     @DataProvider(name = "loginDataProvider")

@@ -1,10 +1,10 @@
 package Data.Ro.BlackShark;
 
-import Data.Apis.BlackShark.PreAssetPkgBatchController;
+import Data.ApisLayer.BlackShark.PreAssetPkgBatchController;
 import Service.Annotations.AnnotationLibrary.Body;
 import Service.Annotations.AnnotationLibrary.Dependence;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
-import Service.Config.Config;
+import Service.Core.TestContext;
 import Service.Util.Universal.JsonHandler;
 
 @Dependence(
@@ -29,7 +29,7 @@ public class PreAssetPkgBatchControllerCheckAssetRo extends PreAssetPkgBatchCont
      * @return batchId
      */
     private String firstId() {
-        return (String) JsonHandler.readValueByJsonPath("$.data.data[0].batchId", Config.getCacheDataAsString("id_PreAssetPkgBatchControllerCheckAssetRo"));
+        return (String) JsonHandler.readValueByJsonPath("$.data.data[0].batchId", TestContext.getCacheDataAsString("id_PreAssetPkgBatchControllerCheckAssetRo"));
     }
 
 }

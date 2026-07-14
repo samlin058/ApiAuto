@@ -1,7 +1,6 @@
 package Application.DataFactory.LoanMarket;
 
-import Service.Enum.DatabaseEnum;
-import Service.Enum.ProjectEnum;
+import Service.Core.ProjectEnum;
 import Service.Util.Universal.JDBCHandler;
 import Service.Util.Universal.JsonHandler;
 import Service.Util.variable.PhoneNumberGeneratorHandler;
@@ -207,7 +206,7 @@ public class H5ProcessContext {
 
     private static H5ProcessContext H5ProcessContextByUid(String uid) {
         String sql = "select mobile,platform from tbl_user where id = ?";
-        String queryResult = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, sql, uid);
+        String queryResult = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, sql, uid);
         if (!"{}".equals(queryResult)) {
             H5ProcessContext h5ProcessContext = new H5ProcessContext();
             h5ProcessContext.setChannelCode(JsonHandler.readStringByJsonPath("$.platform", queryResult));
@@ -222,7 +221,7 @@ public class H5ProcessContext {
     private static H5ProcessContext H5ProcessContextByMobile(String mobile, String channelCode) {
         H5ProcessContext h5ProcessContext = new H5ProcessContext();
         String sql = "select id from tbl_user where mobile = ? and platform= ? ";
-        String queryResult = JDBCHandler.queryFirstRowAsJson(DatabaseEnum.LoanMarkest, sql, mobile, channelCode);
+        String queryResult = JDBCHandler.queryFirstRowAsJson(ProjectEnum.LoanMarket, sql, mobile, channelCode);
         if (!"{}".equals(queryResult)) {
             String uid = JsonHandler.readArrayAsStringByJsonPath("$.id", queryResult);
             h5ProcessContext.setChannelCode(channelCode);

@@ -3,14 +3,14 @@
 <suite name="Suite" parallel="false">
 
 	<listeners>
-		<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+		<listener class-name="Service.Listen.HtmlReportListener"/>
 		<listener class-name="Service.Listen.TestListener"/>
 	</listeners>
 
 	<test name="Test">
 		<classes>
 			<class name="Application.TestCase.LoanMarket.TestCase.Open.OpenRepaymentTest" />
-			<class name="Application.TestCase.LoanMarket.TestCase.Open.Loan_AgreementTest" />
+			<class name="Application.TestCase.LoanMarket.TestCase.Open.LoanAgreementTest" />
 		</classes>
 
 <!--		<packages>-->

@@ -1,6 +1,6 @@
 package Data.Ro.LoanMarket;
 
-import Data.Apis.LoanMarket.PartnerController;
+import Data.ApisLayer.LoanMarket.PartnerController;
 import Service.Annotations.AnnotationLibrary.Param;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
 

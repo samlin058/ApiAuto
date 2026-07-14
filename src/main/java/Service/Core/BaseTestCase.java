@@ -1,6 +1,6 @@
-package Service.Base;
+package Service.Core;
 
-import Service.Enum.TestScenarioEnum;
+import Service.Listen.ReportContext;
 import Service.Pojo.Method;
 import Service.Util.Universal.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -12,9 +12,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
 
-public class BaseTestCase2 {
+/**
+ * 测试用例基类，提供通用断言、参数化测试数据加载及接口测试执行能力。
+ * <p>
+ * 所有 TestNG 测试类应继承此类，可使用 {@link #assertEq(Object, Object)} 等断言方法，
+ * 以及 {@link #getTestData(TestScenarioEnum, String)} 从 JSON 文件加载参数化测试数据。
+ * </p>
+ */
+public class BaseTestCase {
 
-    //  private static final Logger logger = Logger.getLogger(BaseTestCase2.class.getName());
+    //  private static final Logger logger = Logger.getLogger(BaseTestCase.class.getName());
 
     /**
      * 通用断言方法
@@ -28,9 +35,10 @@ public class BaseTestCase2 {
         boolean result = comparator.apply(actualValue, expectedValue);
         if (!result) {
             System.out.println("实际值：[" + actualValue + "]，期望值：[" + expectedValue + "]");
-            //logger.warning(String.format("Assertion failed: actualValue=%s, expectedValue=%s", actualValue, expectedValue));
+            String detailMessage = errorMessage + " | 实际值：[" + actualValue + "]，期望值：[" + expectedValue + "]";
+            ReportContext.setAssertionDetail(actualValue, expectedValue, detailMessage);
+            Assert.fail(detailMessage);
         }
-        Assert.assertTrue(result, errorMessage);
     }
 
     /**

@@ -1,11 +1,11 @@
 package Data.Ro.BlackShark;
 
-import Data.Apis.BlackShark.PreAssetPkgController;
+import Data.ApisLayer.BlackShark.PreAssetPkgController;
 import Service.Annotations.AnnotationLibrary.Dependence;
 import Service.Annotations.AnnotationLibrary.Dependences;
 import Service.Annotations.AnnotationLibrary.Body;
 import Service.Annotations.AnnotationProcessor.*;
-import Service.Config.Config;
+import Service.Core.TestContext;
 import Service.Util.Universal.DateHandler;
 import Service.Util.variable.GenerationHandler;
 import Service.Util.Universal.JsonHandler;
@@ -33,11 +33,11 @@ public class PreAssetPkgControllerAssetPkgBaseCreateRo extends PreAssetPkgContro
     }
 
     private String defuatProjectCode() {
-        return (String) JsonHandler.readValueByJsonPath("$.data[0].value", Config.getCacheDataAsString("projectCode_PreAssetPkgControllerAssetPkgBaseCreateRo"));
+        return (String) JsonHandler.readValueByJsonPath("$.data[0].value", TestContext.getCacheDataAsString("projectCode_PreAssetPkgControllerAssetPkgBaseCreateRo"));
     }
 
     private String defuatAssetTypeCode() {
-        String json = Config.getCacheDataAsString("assetTypeCode_PreAssetPkgControllerAssetPkgBaseCreateRo");
+        String json = TestContext.getCacheDataAsString("assetTypeCode_PreAssetPkgControllerAssetPkgBaseCreateRo");
         return (String) JsonHandler.readValueByJsonPath("$.data[0].value", json);
     }
 }

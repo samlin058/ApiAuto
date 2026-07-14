@@ -1,17 +1,17 @@
 package Application.TestCase.LoanMarket.TestCase.Zy;
 
-import Application.DBoperation.LoanMarket.CreditInfo;
+import Data.DBoperation.LoanMarket.CreditInfo;
 import Application.DataFactory.LoanMarket.ChannelRoutingConfiguration;
 import Application.DataFactory.LoanMarket.ProductCodeGroup;
 import Application.DataFactory.LoanMarket.UserInfoAddDataFactory;
 import Application.DataFactory.LoanMarket.XYJH5User;
-import Data.Apis.LoanMarket.AssessmentController;
-import Data.Apis.LoanMarket.ContactsController;
-import Data.Apis.LoanMarket.UserInfoController;
+import Data.ApisLayer.LoanMarket.AssessmentController;
+import Data.ApisLayer.LoanMarket.ContactsController;
+import Data.ApisLayer.LoanMarket.UserInfoController;
 import Data.Ro.LoanMarket.AssessmentControllerInitRo;
 import Data.Ro.LoanMarket.AssessmentControllerStatusRo;
 import Data.Ro.LoanMarket.UserInfoControllerAddRo;
-import Service.Base.BaseTestCase2;
+import Service.Core.BaseTestCase;
 import Service.Util.Universal.JsonHandler;
 import Service.Util.Universal.PollingHandler;
 import org.testng.annotations.DataProvider;
@@ -24,7 +24,7 @@ import static Data.Ro.LoanMarket.ContactsControllerSaveContactsRo.generateContac
 /**
  * 授信测试
  */
-public class Loan_CreditTest extends BaseTestCase2 {
+public class Loan_CreditTest extends BaseTestCase {
 
     // 默认渠道
     public static final String DEFAULT_CHANNEL_CODE = "luandaoTest2";
@@ -40,21 +40,21 @@ public class Loan_CreditTest extends BaseTestCase2 {
     public static void TC_Credit_01(String productCode, UserInfoControllerAddRo ro) {
         authorizeCreditForUser(productCode, ro);
         String creditResult = CreditInfo.getNewestCreditInfo(ro.getX_Login_Uid());
-        BaseTestCase2.assertContains(JsonHandler.readStringByJsonPath("$.*.status", creditResult), "PASSED");
+        BaseTestCase.assertContains(JsonHandler.readStringByJsonPath("$.*.status", creditResult), "PASSED");
     }
 
     @Test(testName = "授信成功-半流程模式", dataProvider = "DP_UserInfo_Default_Half_Capital",enabled = false)
     public static void TC_Credit_02(String productCode, UserInfoControllerAddRo ro) {
         authorizeCreditForUser(productCode, ro);
         String creditResult = CreditInfo.getNewestCreditInfo(ro.getX_Login_Uid());
-        BaseTestCase2.assertContains(JsonHandler.readStringByJsonPath("$.*.status", creditResult), "PASSED");
+        BaseTestCase.assertContains(JsonHandler.readStringByJsonPath("$.*.status", creditResult), "PASSED");
     }
 
     @Test(testName = "授信成功-全流程api+H5模式", dataProvider = "DP_UserInfo_Default_api_h5_Capital")
     public static void TC_Credit_03(String productCode, UserInfoControllerAddRo ro) {
         authorizeCreditForUser(productCode, ro);
         String creditResult = CreditInfo.getNewestCreditInfo(ro.getX_Login_Uid());
-        BaseTestCase2.assertContains(JsonHandler.readStringByJsonPath("$.*.status", creditResult), "PASSED");
+        BaseTestCase.assertContains(JsonHandler.readStringByJsonPath("$.*.status", creditResult), "PASSED");
     }
 
     @Test(testName = "授信失败-全流程api模式", dataProvider = "DP_UserInfo_Default_Api_Capital", enabled = false)

@@ -1,16 +1,16 @@
 package Application.TestCase.Alchemist.TestCase;
 
 
-import Data.Apis.Alchemist.LeadController;
+import Data.ApisLayer.Alchemist.LeadController;
 import Data.Ro.Alchemist.LeadControllerCreateShortLinkRo;
 import Data.Ro.Alchemist.getApplicationStatuesRo;
-import Service.Base.BaseTestCase2;
-import Service.Enum.TestScenarioEnum;
+import Service.Core.BaseTestCase;
+import Service.Core.TestScenarioEnum;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-public class LeadControllerTest extends BaseTestCase2 {
+public class LeadControllerTest extends BaseTestCase {
 
     LeadController leadController = new LeadController();
 

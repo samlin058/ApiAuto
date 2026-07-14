@@ -1,6 +1,6 @@
 package Data.Ro.IndoArk;
 
-import Data.Apis.IndoArk.SmsTemplateController;
+import Data.ApisLayer.IndoArk.SmsTemplateController;
 import Service.Annotations.AnnotationLibrary.Param;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
 

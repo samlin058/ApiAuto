@@ -1,7 +1,6 @@
 package Service.Util.variable;
 
-import Service.Enum.DatabaseEnum;
-import Service.Enum.ProjectEnum;
+import Service.Core.ProjectEnum;
 import Service.Util.Universal.GetStackInfoHandler;
 import Service.Util.Universal.JDBCHandler;
 
@@ -51,7 +50,7 @@ public class PhoneNumberGeneratorHandler {
             while (!isPhoneAvailable) {
                 phone = generatePhoneNumber();
                 String sql = "SELECT mobile FROM tbl_user WHERE mobile = ?;";
-                String queryResult = JDBCHandler.queryRowsAsJsonArray(DatabaseEnum.LoanMarkest, sql, phone);
+                String queryResult = JDBCHandler.queryRowsAsJsonArray(ProjectEnum.LoanMarket, sql, phone);
                 // 判断查询结果是否为空（JSON空数组长度为2）
                 isPhoneAvailable = (queryResult.length() == 2);
                 if (!isPhoneAvailable) {

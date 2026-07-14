@@ -1,6 +1,6 @@
 package Data.Ro.BlackShark;
 
-import Data.Apis.BlackShark.ReceiptController;
+import Data.ApisLayer.BlackShark.ReceiptController;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
 import Service.Annotations.AnnotationLibrary.Param;
 

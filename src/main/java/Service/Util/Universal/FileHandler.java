@@ -143,7 +143,7 @@ public class FileHandler {
      * @param aoFileModel
      */
     public static void aoFileGenerator(AoFileModel aoFileModel) {
-        String outputDirectory = OUTPUT_PATH + "Data/Apis/" + aoFileModel.getPackageName() + "/";
+        String outputDirectory = OUTPUT_PATH + "Data/ApisLayer/" + aoFileModel.getPackageName() + "/";
         String fileName = aoFileModel.getAoFileName() + ".java";
         File outputFile = new File(outputDirectory, fileName);
         if (outputFile.exists()) {
@@ -196,7 +196,7 @@ public class FileHandler {
 
     public static void aoFileGenerator2(AoFileModel aoFileModel) {
         // 定义输出路径
-        String outputDirectory = OUTPUT_PATH + "Data/Apis/" + aoFileModel.getPackageName() + "/";
+        String outputDirectory = OUTPUT_PATH + "Data/ApisLayer/" + aoFileModel.getPackageName() + "/";
         String fileName = aoFileModel.getAoFileName() + ".java";
         File outputFile = new File(outputDirectory, fileName);
 
@@ -410,7 +410,7 @@ public class FileHandler {
     }
 
     private static List<String> getProjectNameList() {
-        String folderPath = OUTPUT_PATH + PropertiesHandle.configuration.getProperty("path.output.apis", "Data/Apis/");
+        String folderPath = OUTPUT_PATH + PropertiesHandle.configuration.getProperty("path.output.apis", "Data/ApisLayer/");
         List<String> fileName = new ArrayList<>();
         // 创建一个File对象
         File folder = new File(folderPath);

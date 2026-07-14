@@ -1,9 +1,9 @@
 package Application.TestCase.Goblin.TestCase;
 
 
-import Data.Apis.Goblin.QueryController;
+import Data.ApisLayer.Goblin.QueryController;
 import Data.Ro.Goblin.QueryControllerExportCollectionCasesRo;
-import Service.Base.BaseTestCase;
+import Service.Core.BaseTestCase;
 import org.testng.annotations.Test;
 
 

@@ -2,10 +2,10 @@ package Application.TestCase.LoanMarket.TestCase.Zy;
 
 import Application.DataFactory.LoanMarket.H5ProcessContext;
 import Application.DataFactory.LoanMarket.XYJH5Process;
-import Data.Apis.LoanMarket.OrderController;
+import Data.ApisLayer.LoanMarket.OrderController;
 import Data.Enum.LoanMarket.LoanUsageEnum;
 import Data.Ro.LoanMarket.OrderControllerCreateRo;
-import Service.Base.BaseTestCase2;
+import Service.Core.BaseTestCase;
 import Service.Util.Universal.IntegerHandler;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 提现测试
  */
-public class Loan_WithdrawTest extends BaseTestCase2 {
+public class Loan_WithdrawTest extends BaseTestCase {
 
     static OrderController orderController = new OrderController();
 

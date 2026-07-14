@@ -1,11 +1,11 @@
 package Data.Ro.LoanMarketRust;
 
-import Data.Apis.LoanMarketRust.channel_router_api;
+import Data.ApisLayer.LoanMarketRust.channel_router_api;
 import Service.Annotations.AnnotationLibrary.Body;
 import Service.Annotations.AnnotationLibrary.Dependence;
 import Service.Annotations.AnnotationLibrary.PathParam;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
-import Service.Config.Config;
+import Service.Core.TestContext;
 import Service.Util.Universal.JsonHandler;
 
 
@@ -28,7 +28,7 @@ public class channel_router_apiModify_router_priority_ruleRo extends channel_rou
     @Body
     public Integer limitMode = 1;// 累计模式, 0 累计，1 每天, 2 按周 3 按月
 
-    final static String get_enable_partner_all = JsonHandler.readArrayAsStringByJsonPath("$.data", Config.getCacheDataAsString("get_enable_partner_all"));
+    final static String get_enable_partner_all = JsonHandler.readArrayAsStringByJsonPath("$.data", TestContext.getCacheDataAsString("get_enable_partner_all"));
 
     public channel_router_apiModify_router_priority_ruleRo(String channelId, String partnerCode) {
         String partnerId = JsonHandler.findValueByKeyInArray(get_enable_partner_all, "code", partnerCode, "id");

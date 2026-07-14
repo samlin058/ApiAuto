@@ -1,11 +1,11 @@
 package Application.TestCase.Alchemist.TestCase;
 
 
-import Data.Apis.Alchemist.FileController;
+import Data.ApisLayer.Alchemist.FileController;
 import Data.Ro.Alchemist.FileControllerDownloadErrorRo;
 import Data.Ro.Alchemist.FileControllerDownloadFileRo;
 import Data.Ro.Alchemist.ImportLeadRo;
-import Service.Base.BaseTestCase;
+import Service.Core.BaseTestCase;
 import org.testng.annotations.Test;
 
 
@@ -16,6 +16,7 @@ public class FileControllerTest extends BaseTestCase {
     @Test
     public void importLead() {
         fileController.convert2RoAndRequest("",ImportLeadRo.class);
+        assertContains("qqq", "fileController");
     }
 
     @Test

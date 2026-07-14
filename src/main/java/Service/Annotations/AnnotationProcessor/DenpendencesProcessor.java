@@ -2,7 +2,7 @@ package Service.Annotations.AnnotationProcessor;
 
 import Service.Annotations.AnnotationLibrary.Dependence;
 import Service.Annotations.AnnotationLibrary.Dependences;
-import Service.Config.Config;
+import Service.Core.TestContext;
 import Service.Util.Universal.PropertiesHandle;
 import Service.Util.Universal.StringHandler;
 import com.alibaba.fastjson.JSON;
@@ -72,7 +72,7 @@ public class DenpendencesProcessor {
             }
             // 缓存结果
             if (!StringHandler.isEmpty(keys) && !StringHandler.isEmpty(result)) {
-                Config.setCacheData(keys, result);
+                TestContext.setCacheData(keys, result);
             }
         } catch (Exception e) {
             System.err.println("处理异常：" + e.getMessage());

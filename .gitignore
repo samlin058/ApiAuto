@@ -1,4 +1,5 @@
 /target
 /test-output
+/TestReports
 /.idea
 /testng_debug.xml

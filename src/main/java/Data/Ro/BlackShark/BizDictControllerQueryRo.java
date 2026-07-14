@@ -1,6 +1,6 @@
 package Data.Ro.BlackShark;
 
-import Data.Apis.BlackShark.BizDictController;
+import Data.ApisLayer.BlackShark.BizDictController;
 import Service.Annotations.AnnotationProcessor.DenpendencesProcessor;
 import Service.Annotations.AnnotationLibrary.Param;
 
