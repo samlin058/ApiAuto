@@ -9,12 +9,12 @@
 
 	<test name="Test">
 		<classes>
-<!--			<class name="Application.TestCase.Alchemist.TestCase.FileControllerTest" />-->
-<!--			<class name="Application.TestCase.Alchemist.TestCase.LeadControllerTest" />-->
+			<class name="Application.TestCase.Alchemist.TestCase.FileControllerTest" />
+			<class name="Application.TestCase.Alchemist.TestCase.LeadControllerTest" />
 			<class name="Application.TestCase.Goblin.TestCase.QueryControllerTest" />
-			<class name="Application.DataFactory.BlackShark.ProjectManagement" />
-			<!--<class name="Application.TestCase.Alchemist.TestCase.FileControllerTest" />-->
-            <!--<class name="Application.TestCase.Alchemist.TestCase.LeadControllerTest" />-->
+			<class name="Data.BusinessLayer.BlackShark.ProjectManagement" />
+			<class name="Application.TestCase.Alchemist.TestCase.FileControllerTest" />
+            <class name="Application.TestCase.Alchemist.TestCase.LeadControllerTest" />
 		</classes>
 
 <!--		<packages>-->

@@ -2,4 +2,4 @@
 /test-output
 /TestReports
 /.idea
-/testng_debug.xml
+/src/test/resources/testng_debug.xml
